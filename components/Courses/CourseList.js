@@ -4,12 +4,15 @@ import CoursePreview from "./CoursePreview"
 export default function CourseList({ courses }) {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-5 py-4 mx-auto">
         <div className="flex flex-wrap -m-4">
-          {courses.map((course) => (
+          {courses.map((course, index) => (
             <CoursePreview
-              key={course.name.substring(course.name.lastIndexOf("/") + 1)}
-              course={course.fields}
+              index={index}
+              key={course.document.name.substring(
+                course.document.name.lastIndexOf("/") + 1
+              )}
+              course={course.document.fields}
             />
           ))}
         </div>

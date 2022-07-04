@@ -1,29 +1,45 @@
 import React from "react"
 import Rating from "../common/Rating"
+import Image from "next/image"
+import TimeAgo from "javascript-time-ago"
+// English.
+import en from "javascript-time-ago/locale/en"
+TimeAgo.addDefaultLocale(en)
+// Create formatter (English).
+const timeAgo = new TimeAgo("en-US")
 
-export default function CoursePreview({ course }) {
-  console.log({ course })
+export default function CoursePreview({ course, index }) {
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <a className="block relative h-48 rounded overflow-hidden">
+      <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
+        Expiry {timeAgo.format(new Date(course.campaign.end_time), "round")}
+        {course.campaign.uses_remaining && (
+          <span> or {course.campaign.uses_remaining} uses</span>
+        )}
+      </div>
+      <a className="block relative rounded overflow-hidden">
         <div className="relative w-full z-10">
           <div
-            className={`origin-top float-left mt-8 w-24 text-center absolute -left-20 -top-4 text-sm md:text-md ${
+            className={`origin-top float-left mt-8 w-24 text-center absolute -left-20 -top-4 text-lg md:text-md border border-gray-400 ${
               course.discountPercent == 100
-                ? "bg-red-400"
-                : "bg-gray-700 text-white"
+                ? "bg-gray-600 text-white"
+                : "bg-gray-600 text-white"
             }`}
             style={{ transform: "translateX(50%) rotate(-45deg)" }}
           >
             <div className="font-bold">
-              {course.discountPercent == 100 ? "Free" : "Paid"}
+              {course.discountPercent == 100 ? "Free" : "Deal"}
             </div>
           </div>
         </div>
-        <img
-          alt="ecommerce"
-          className="object-cover object-center w-full h-full block"
-          src="https://dummyimage.com/420x260"
+        <Image
+          src={course.images.imgur_480x270}
+          alt={course.title}
+          width="480"
+          height="270"
+          layout="responsive"
+          className="opacity-80"
+          priority={index < 2}
         />
       </a>
       <div className="mt-2">
@@ -42,8 +58,8 @@ export default function CoursePreview({ course }) {
             {course.listPrice}
           </span>
           <span
-            className={`font-semibold ${
-              course.discountPercent == 100 ? "text-red-500" : "text-amber-600"
+            className={`font-semibold text-xl ${
+              course.discountPercent == 100 ? "text-red-600" : "text-green-700"
             } ml-2`}
           >
             {course.discountPercent}% off

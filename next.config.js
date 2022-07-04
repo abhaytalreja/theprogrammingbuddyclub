@@ -2,11 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "source.unsplash.com",
-      "madewithjavascript.club",
-      "res.cloudinary.com",
-    ],
+    domains: ["theprogrammingbuddy.club", "i.imgur.com"],
   },
   publicRuntimeConfig: {
     // Will be available on both server and client

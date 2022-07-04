@@ -4,7 +4,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        theme: "#e74c3c",
+        "theme-hover": "#de3523",
+      },
+      fontFamily: {
+        varela: ["Varela Round", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
