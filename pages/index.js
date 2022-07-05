@@ -1,10 +1,17 @@
 import Head from "next/head"
 import Image from "next/image"
 import CourseList from "@/components/Courses/CourseList"
-import siteConfig from "config/siteConfig"
 import FireStoreParser from "firestore-parser"
-import CategoriesList from "@/components/Categories/CategoriesList"
 import { useState } from "react"
+import dynamic from "next/dynamic"
+import { Suspense } from "react"
+
+const CategoriesList = dynamic(
+  () => import("@/components/Categories/CategoriesList"),
+  {
+    suspense: true,
+  }
+)
 
 const courseFields = [
   { fieldPath: "discountPercent" },
@@ -82,7 +89,6 @@ const discountQuery = {
 }
 
 const nowNumber = +Date.parse(new Date())
-console.log("nowNumber", nowNumber)
 const expiredQuery = {
   structuredQuery: {
     from: [{ collectionId: "courses" }],
@@ -122,8 +128,6 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
   const [showMoreExpiredCourses, setShowMoreExpiredCourses] = useState(
     expiredCourses.length % 8 == 0
   )
-
-  console.log({ freeCourses })
 
   const [totalFreeCourses, setTotalFreeCourses] = useState(freeCourses)
   const [totalDiscountCourses, setTotalDiscountCourses] =
@@ -251,7 +255,9 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
           </button>
         </div>
       )}
-      <CategoriesList />
+      <Suspense fallback={`Loading...`}>
+        <CategoriesList />
+      </Suspense>
     </div>
   )
 }
@@ -271,9 +277,7 @@ export async function getServerSideProps() {
     }
   )
   const freeResponseJson = await freeResponse.json()
-  // console.log("freeResponseJson", freeResponseJson)
   const freeCourses = await FireStoreParser(freeResponseJson)
-  // console.log("courses", freeCourses)
 
   const discountResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -286,9 +290,7 @@ export async function getServerSideProps() {
     }
   )
   const discountResponseJson = await discountResponse.json()
-  // console.log("discountResponseJson", discountResponseJson)
   const discountCourses = await FireStoreParser(discountResponseJson)
-  // console.log("courses", discountCourses)
 
   const expiredResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -301,12 +303,7 @@ export async function getServerSideProps() {
     }
   )
   const expiredResponseJson = await expiredResponse.json()
-  console.log("expiredResponseJson", expiredResponseJson)
   const expiredCourses = await FireStoreParser(expiredResponseJson)
-  expiredCourses.forEach((course) =>
-    console.log(course.document.name, course.document.fields.images)
-  )
-  // console.log("courses", expiredCourses)
 
   return {
     props: {
