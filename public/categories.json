@@ -1,0 +1,67 @@
+[
+  { "title": "Python", "url": "/category/python/" },
+  { "title": "Web Development", "url": "/category/web-development/" },
+  { "title": "AWS Certification", "url": "/category/aws-certification/" },
+  { "title": "Excel", "url": "/category/excel/" },
+  { "title": "JavaScript", "url": "/category/javascript/" },
+  { "title": "React", "url": "/category/react/" },
+  {
+    "title": "Microsoft Certification",
+    "url": "/category/microsoft-certification/"
+  },
+  { "title": "SQL", "url": "/category/sql/" },
+  { "title": "Data Science", "url": "/category/data-science/" },
+  { "title": "Java", "url": "/category/java/" },
+  { "title": "Unity", "url": "/category/unity/" },
+  { "title": "Microsoft Power BI", "url": "/category/microsoft-power-bi/" },
+  { "title": "C#", "url": "/category/c-sharp/" },
+  {
+    "title": "AWS Certified Solutions Architect - Associate",
+    "url": "/category/aws-certified-solutions-architect-associate/"
+  },
+  { "title": "Ethical Hacking", "url": "/category/ethical-hacking/" },
+  { "title": "Blender", "url": "/category/blender/" },
+  { "title": "Machine Learning", "url": "/category/machine-learning/" },
+  {
+    "title": "AWS Certified Cloud Practitioner",
+    "url": "/category/aws-certified-cloud-practitioner/"
+  },
+  { "title": "Amazon AWS", "url": "/category/amazon-aws/" },
+  { "title": "Unreal Engine", "url": "/category/unreal-engine/" },
+  { "title": "C++", "url": "/category/c-plus-plus/" },
+  { "title": "Digital Marketing", "url": "/category/digital-marketing/" },
+  { "title": "PMP", "url": "/category/pmp/" },
+  { "title": "CSS", "url": "/category/css/" },
+  { "title": "Data Analysis", "url": "/category/data-analysis/" },
+  { "title": "CompTIA A+", "url": "/category/comptia-a/" },
+  { "title": "Kubernetes", "url": "/category/kubernetes/" },
+  { "title": "Project Management", "url": "/category/project-management/" },
+  { "title": "English Language", "url": "/category/english-language/" },
+  { "title": "Angular", "url": "/category/angular/" },
+  { "title": "Docker", "url": "/category/docker/" },
+  { "title": "Google Flutter", "url": "/category/google-flutter/" },
+  { "title": "Cryptocurrency", "url": "/category/cryptocurrency/" },
+  { "title": "Graphic Design", "url": "/category/graphic-design/" },
+  { "title": "WordPress", "url": "/category/wordpress/" },
+  { "title": "Node.Js", "url": "/category/nodejs/" },
+  { "title": "Linux", "url": "/category/linux/" },
+  { "title": "Cyber Security", "url": "/category/cyber-security/" },
+  { "title": "MySQL", "url": "/category/mysql/" },
+  { "title": "Drawing", "url": "/category/drawing/" },
+  { "title": "Photoshop", "url": "/category/photoshop/" },
+  { "title": "Cisco CCNA", "url": "/category/cisco-ccna/" },
+  {
+    "title": "User Experience Design",
+    "url": "/category/user-experience-design/"
+  },
+  { "title": "Microservices", "url": "/category/microservices/" },
+  { "title": "Software Testing", "url": "/category/software-testing/" },
+  { "title": "Scrum", "url": "/category/scrum/" },
+  { "title": "CompTIA Security+", "url": "/category/comptia-security/" },
+  { "title": "Algorithms", "url": "/category/algorithms/" },
+  { "title": "DevOps", "url": "/category/devops/" },
+  {
+    "title": "Game Development Fundamentals",
+    "url": "/category/game-development/"
+  }
+]

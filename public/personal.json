@@ -1,0 +1,70 @@
+[
+  { "title": "Life Coach Training", "url": "/category/life-coaching/" },
+  { "title": "Personal Development", "url": "/category/personal-development/" },
+  { "title": "Leadership", "url": "/category/leadership/" },
+  {
+    "title": "Neuro-Linguistic Programming",
+    "url": "/category/neuro-linguistic-programming/"
+  },
+  {
+    "title": "Personal Productivity",
+    "url": "/category/personal-productivity/"
+  },
+  { "title": "Speed Reading", "url": "/category/speed-reading/" },
+  { "title": "Memory", "url": "/category/memory/" },
+  { "title": "Communication Skills", "url": "/category/communication-skills/" },
+  { "title": "Confidence", "url": "/category/confidence/" },
+  {
+    "title": "Personal Transformation",
+    "url": "/category/personal-transformation/"
+  },
+  { "title": "Time Management", "url": "/category/time-management/" },
+  { "title": "Mindfulness", "url": "/category/mindfulness/" },
+  { "title": "Learning Strategies", "url": "/category/learning-strategies/" },
+  { "title": "Spirituality", "url": "/category/spirituality/" },
+  { "title": "The Bible", "url": "/category/the-bible/" },
+  { "title": "Life Purpose", "url": "/category/life-purpose/" },
+  { "title": "Public Speaking", "url": "/category/public-speaking/" },
+  { "title": "Coaching", "url": "/category/coaching/" },
+  {
+    "title": "Emotional Intelligence",
+    "url": "/category/emotional-intelligence/"
+  },
+  { "title": "Interviewing Skills", "url": "/category/interviewing-skills/" },
+  { "title": "Meditation", "url": "/category/meditation/" },
+  { "title": "Creative Writing", "url": "/category/creative-writing/" },
+  { "title": "Psychology", "url": "/category/psychology-fundamentals/" },
+  { "title": "Management Skills", "url": "/category/management-skills/" },
+  { "title": "Resume and CV Writing", "url": "/category/resume/" },
+  { "title": "Self-Esteem", "url": "/category/self-esteem/" },
+  { "title": "Parenting", "url": "/category/parenting/" },
+  { "title": "CBT Cognitive Behavioral Therapy", "url": "/category/cbt/" },
+  {
+    "title": "Business Communication",
+    "url": "/category/business-communication/"
+  },
+  { "title": "Voice Training", "url": "/category/voice-training/" },
+  { "title": "Job Search", "url": "/category/job-search/" },
+  { "title": "Relationship Building", "url": "/category/relationship/" },
+  {
+    "title": "Manifestation and Law of Attraction",
+    "url": "/category/law-of-attraction/"
+  },
+  { "title": "Stress Management", "url": "/category/stress-management/" },
+  { "title": "Sound Therapy", "url": "/category/sound-therapy/" },
+  { "title": "Art Therapy", "url": "/category/art-therapy/" },
+  { "title": "Manager Training", "url": "/category/manager-training/" },
+  { "title": "Business Writing", "url": "/category/business-writing/" },
+  { "title": "Focus Mastery", "url": "/category/focus-mastery/" },
+  { "title": "Goal Setting", "url": "/category/goal-setting/" },
+  { "title": "Career Development", "url": "/category/career-development/" },
+  { "title": "Personal Networking", "url": "/category/personal-networking/" },
+  { "title": "Study Skills", "url": "/category/study-skills/" },
+  { "title": "Writing", "url": "/category/writing/" },
+  { "title": "Neuroplasticity", "url": "/category/neuroplasticity/" },
+  { "title": "Screenwriting", "url": "/category/screenwriting/" },
+  { "title": "Counseling", "url": "/category/counseling/" },
+  { "title": "Notion Workspace", "url": "/category/notion-workspace/" },
+  { "title": "LinkedIn", "url": "/category/linkedin/" },
+  { "title": "Tarot Reading", "url": "/category/tarot-reading/" }
+]

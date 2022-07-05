@@ -1,0 +1,147 @@
+[
+  { "title": "Python", "url": "/category/python/" },
+  { "title": "Web Development", "url": "/category/web-development/" },
+  { "title": "JavaScript", "url": "/category/javascript/" },
+  { "title": "React", "url": "/category/react/" },
+  { "title": "Data Science", "url": "/category/data-science/" },
+  { "title": "Java", "url": "/category/java/" },
+  { "title": "Unity", "url": "/category/unity/" },
+  { "title": "C#", "url": "/category/c-sharp/" },
+  { "title": "Machine Learning", "url": "/category/machine-learning/" },
+  { "title": "C++", "url": "/category/c-plus-plus/" },
+  { "title": "Unreal Engine", "url": "/category/unreal-engine/" },
+  { "title": "Angular", "url": "/category/angular/" },
+  { "title": "Google Flutter", "url": "/category/google-flutter/" },
+  { "title": "CSS", "url": "/category/css/" },
+  { "title": "SQL", "url": "/category/sql/" },
+  { "title": "Node.Js", "url": "/category/nodejs/" },
+  { "title": "Docker", "url": "/category/docker/" },
+  { "title": "Software Testing", "url": "/category/software-testing/" },
+  {
+    "title": "Game Development Fundamentals",
+    "url": "/category/game-development/"
+  },
+  { "title": "Data Analysis", "url": "/category/data-analysis/" },
+  { "title": "Typescript", "url": "/category/typescript/" },
+  { "title": "iOS Development", "url": "/category/ios-development/" },
+  { "title": "Android Development", "url": "/category/android-development/" },
+  { "title": "Microservices", "url": "/category/microservices/" },
+  { "title": "PHP", "url": "/category/php/" },
+  { "title": "MySQL", "url": "/category/mysql/" },
+  { "title": "Data Structures", "url": "/category/data-structures/" },
+  { "title": "Deep Learning", "url": "/category/deep-learning/" },
+  { "title": "Swift", "url": "/category/swift/" },
+  { "title": "Solidity", "url": "/category/solidity/" },
+  { "title": "Algorithms", "url": "/category/algorithms/" },
+  { "title": "HTML5", "url": "/category/html5/" },
+  { "title": "Git", "url": "/category/git/" },
+  { "title": "Vue JS", "url": "/category/vue-js/" },
+  { "title": "Django", "url": "/category/django/" },
+  { "title": "React Native", "url": "/category/react-native/" },
+  { "title": "Spring Framework", "url": "/category/spring-framework/" },
+  {
+    "title": "Go (programming language)",
+    "url": "/category/go-programming-language/"
+  },
+  { "title": "3D Game Development", "url": "/category/3d-game-development/" },
+  { "title": "Spring Boot", "url": "/category/spring-boot/" },
+  { "title": "WordPress", "url": "/category/wordpress/" },
+  { "title": "ASP.NET Core", "url": "/category/aspnet-core/" },
+  {
+    "title": "Artificial Intelligence",
+    "url": "/category/artificial-intelligence/"
+  },
+  { "title": "Coding Interview", "url": "/category/coding-interview/" },
+  { "title": "Ethereum", "url": "/category/ethereum/" },
+  {
+    "title": "Dart (programming language)",
+    "url": "/category/dart-programming-language/"
+  },
+  { "title": "MERN Stack", "url": "/category/mern-stack/" },
+  { "title": "Kubernetes", "url": "/category/kubernetes/" },
+  { "title": "Laravel", "url": "/category/laravel/" },
+  { "title": "C (programming language)", "url": "/category/c-programming/" },
+  { "title": "Responsive Design", "url": "/category/responsive-design/" },
+  {
+    "title": "Object Oriented Programming",
+    "url": "/category/object-oriented-programming/"
+  },
+  { "title": "Next.js", "url": "/category/nextjs-p/" },
+  {
+    "title": "Programming Fundamentals",
+    "url": "/category/programming-fundamentals/"
+  },
+  { "title": "Selenium WebDriver", "url": "/category/selenium-webdriver/" },
+  {
+    "title": "R (programming language)",
+    "url": "/category/r-programming-language/"
+  },
+  { "title": "REST API", "url": "/category/rest-api/" },
+  { "title": "Redux Framework", "url": "/category/redux-framework/" },
+  {
+    "title": "Full Stack Web Development",
+    "url": "/category/full-stack-web-development/"
+  },
+  { "title": "Kotlin", "url": "/category/kotlin/" },
+  { "title": "Statistics", "url": "/category/statistics/" },
+  {
+    "title": "Front End Web Development",
+    "url": "/category/front-end-web-development/"
+  },
+  { "title": "Express Framework", "url": "/category/express-framework/" },
+  {
+    "title": "Natural Language Processing",
+    "url": "/category/natural-language-processing/"
+  },
+  {
+    "title": "Unreal Engine Blueprints",
+    "url": "/category/unreal-engine-blueprints/"
+  },
+  { "title": "Design Pattern", "url": "/category/design-pattern/" },
+  { "title": "Blockchain", "url": "/category/blockchain/" },
+  { "title": "Vuex", "url": "/category/vuex/" },
+  { "title": "HTML", "url": "/category/html/" },
+  { "title": "Sass", "url": "/category/sass/" },
+  { "title": "Hibernate", "url": "/category/hibernate/" },
+  { "title": "DevOps", "url": "/category/devops/" },
+  { "title": "JIRA", "url": "/category/jira/" },
+  { "title": "Automation Testing", "url": "/category/automation-testing/" },
+  { "title": "Mobile App Development", "url": "/category/mobile-development/" },
+  { "title": "Bootstrap", "url": "/category/bootstrap/" },
+  { "title": "Amazon AWS", "url": "/category/amazon-aws/" },
+  { "title": "Apache Kafka", "url": "/category/apache-kafka/" },
+  { "title": "Computer Vision", "url": "/category/computer-vision/" },
+  {
+    "title": "Rust (programming language)",
+    "url": "/category/rust-programming-language/"
+  },
+  { "title": "TensorFlow", "url": "/category/tensorflow/" },
+  { "title": "2D Game Development", "url": "/category/2d-game-development/" },
+  {
+    "title": "Certified Kubernetes Application Developer (CKAD)",
+    "url": "/category/certified-kubernetes-application-developer-ckad/"
+  },
+  { "title": "Database Management", "url": "/category/database-management/" },
+  { "title": "Oracle SQL", "url": "/category/oracle-sql/" },
+  { "title": "React Hooks", "url": "/category/react-hooks/" },
+  { "title": "Data Visualization", "url": "/category/data-visualization/" },
+  { "title": "MongoDB", "url": "/category/mongodb/" },
+  { "title": "Postman", "url": "/category/postman/" },
+  { "title": "Pandas", "url": "/category/pandas/" },
+  { "title": "NestJS", "url": "/category/nestjs/" },
+  {
+    "title": "Selenium Testing Framework",
+    "url": "/category/selenium-testing-framework/"
+  },
+  { "title": "API Testing", "url": "/category/api-testing/" },
+  { "title": "Web Design", "url": "/category/web-design/" },
+  {
+    "title": "TDD Test Driven Development",
+    "url": "/category/test-driven-development/"
+  },
+  { "title": "Big Data", "url": "/category/big-data/" },
+  { "title": "Neural Networks", "url": "/category/neural-networks/" },
+  { "title": "SOLID Principles", "url": "/category/solid-principles/" },
+  { "title": "Math", "url": "/category/math/" },
+  { "title": "Apache Spark", "url": "/category/apache-spark/" }
+]
