@@ -5,6 +5,7 @@ import FireStoreParser from "firestore-parser"
 import { useState } from "react"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
+import Link from "next/link"
 
 const CategoriesList = dynamic(
   () => import("@/components/Categories/CategoriesList"),
@@ -30,7 +31,7 @@ const courseFields = [
 const firestoreQuery = {
   structuredQuery: {
     from: [{ collectionId: "courses" }],
-    orderBy: [{ field: { fieldPath: "updateDate" }, direction: "DESCENDING" }],
+    orderBy: [{ field: { fieldPath: "updateDate" }, direction: "ASCENDING" }],
     select: {
       fields: courseFields,
     },
@@ -195,23 +196,16 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
     }
   }
   return (
-    <div className="px-4 md:px-12">
+    <div className="px-4 md:px-12 mt-8">
       <h1 className="flex flex-row md:inline-flex md:justify-between w-full">
-        <div className="md:text-4xl text-xl font-bold py-2">
-          The Programming Buddy Club
-        </div>
-        <div className="w-24 h-24">
-          <Image
-            src="/theprogrammingbuddyclub.png"
-            alt="The Programming Buddy Club Logo"
-            width={64}
-            height={64}
-          ></Image>
-        </div>
+        <div className="text-xl font-bold py-2">The Programming Buddy Club</div>
       </h1>
       <h2 className="">
-        The best place to find free Udemy Courses. Always updated, to save you
-        the time.
+        Learning Should be free. We at{" "}
+        <Link href="/">theprogrammingbuddy.club</Link> make sure that you get
+        the latest and the best Udemy courses for Free. The best Udemy Free
+        Coupons website that is updated with the latest coupons and also gives
+        you an idean on how much time you have to enroll in the Udemy course.
       </h2>
       <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
         Free Udemy Courses

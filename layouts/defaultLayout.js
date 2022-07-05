@@ -9,13 +9,6 @@ import Script from "next/script"
 
 export default function DefaultLayout({ children }) {
   const router = useRouter()
-  const slug = router.query.slug
-  const logo = "https://madewithjavascript.club/MadewithJS_Logo.webp"
-  const logoImage = slug
-    ? siteConfig.categories.includes(slug)
-      ? `/category/made-with-${slug}-logo.png`
-      : logo
-    : logo
   return (
     <div>
       <Head>
@@ -71,7 +64,7 @@ export default function DefaultLayout({ children }) {
           website={siteConfig.url}
         />
       )}
-      <Header logoImage={logoImage} />
+      <Header />
       {children}
       <Footer />
     </div>

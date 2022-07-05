@@ -58,12 +58,16 @@ export default function CoursePreview({ course, index }) {
           </Link>
         </h3>
         <div className="text-amber-500 font-bold flex justify-start py-1">
-          <Rating rating={course.avg_rating_recent} />{" "}
-          <span className="text-gray-600 text-xs font-normal ml-2">
-            {"("}
-            {course.num_subscribers}
-            {")"}
-          </span>
+          <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
+            <a className="inline-flex">
+              <Rating rating={course.avg_rating_recent} />{" "}
+              <span className="text-gray-600 text-xs font-normal ml-2">
+                {"("}
+                {course.num_subscribers}
+                {")"}
+              </span>
+            </a>
+          </Link>
         </div>
         <p className="text-gray-600 text-md font-bold">
           {course.discountPrice}{" "}
