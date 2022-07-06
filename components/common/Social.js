@@ -26,7 +26,7 @@ export default function Social() {
       </a>
       <a
         className="ml-3 mr-2 text-gray-500 hover:text-theme-hover"
-        href="https://www.instagram.com/programmingbuddyclub/"
+        href="https://chat.whatsapp.com/JqScq7f7oSrCKhVkqj7Iez"
         title="Free Udemy Courses by TheProgrammingBuddyClub on whatsapp"
         target="_blank"
       >
@@ -77,9 +77,9 @@ export default function Social() {
       >
         <svg
           fill="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
           className="w-6 h-6"
           viewBox="0 0 24 24"
         >
@@ -94,9 +94,9 @@ export default function Social() {
       >
         <svg
           fill="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
           className="w-6 h-6"
           viewBox="0 0 24 24"
         >
@@ -131,9 +131,9 @@ export default function Social() {
         <svg
           fill="currentColor"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="0"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="0"
           className="w-6 h-6"
           viewBox="0 0 24 24"
         >

@@ -121,13 +121,13 @@ const expiredQuery = {
 
 export default function Home({ freeCourses, discountCourses, expiredCourses }) {
   const [showMoreFreeCourses, setShowMoreFreeCourses] = useState(
-    freeCourses.length % 8 == 0
+    freeCourses.length > 0 && freeCourses.length % 8 == 0
   )
   const [showMoreDiscountCourses, setShowMoreDiscountCourses] = useState(
-    discountCourses.length % 8 == 0
+    discountCourses.length > 0 && discountCourses.length % 8 == 0
   )
   const [showMoreExpiredCourses, setShowMoreExpiredCourses] = useState(
-    expiredCourses.length % 8 == 0
+    expiredCourses.length > 0 && expiredCourses.length % 8 == 0
   )
 
   const [totalFreeCourses, setTotalFreeCourses] = useState(freeCourses)
@@ -272,6 +272,7 @@ export async function getServerSideProps() {
   )
   const freeResponseJson = await freeResponse.json()
   const freeCourses = await FireStoreParser(freeResponseJson)
+  console.log("freeCourses", freeCourses)
 
   const discountResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -285,6 +286,7 @@ export async function getServerSideProps() {
   )
   const discountResponseJson = await discountResponse.json()
   const discountCourses = await FireStoreParser(discountResponseJson)
+  console.log("discountCourses", discountCourses)
 
   const expiredResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -299,11 +301,13 @@ export async function getServerSideProps() {
   const expiredResponseJson = await expiredResponse.json()
   const expiredCourses = await FireStoreParser(expiredResponseJson)
 
+  console.log("expiredCourses", expiredCourses)
+
   return {
     props: {
       freeCourses,
       discountCourses,
-      expiredCourses,
+      expiredCourses: expiredCourses.length === 1 ? [] : expiredCourses,
       // posts,
       // templates,
     },
