@@ -1,18 +1,16 @@
-import Head from "next/head"
-import Image from "next/image"
 import CourseList from "@/components/Courses/CourseList"
 import FireStoreParser from "firestore-parser"
 import { useState } from "react"
-import dynamic from "next/dynamic"
-import { Suspense } from "react"
+// import dynamic from "next/dynamic"
+// import { Suspense } from "react"
 import Link from "next/link"
 
-const CategoriesList = dynamic(
-  () => import("@/components/Categories/CategoriesList"),
-  {
-    suspense: true,
-  }
-)
+// const CategoriesList = dynamic(
+//   () => import("@/components/Categories/CategoriesList"),
+//   {
+//     suspense: true,
+//   }
+// )
 
 const courseFields = [
   { fieldPath: "discountPercent" },
@@ -249,9 +247,9 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
           </button>
         </div>
       )}
-      <Suspense fallback={`Loading...`}>
+      {/* <Suspense fallback={`Loading...`}>
         <CategoriesList />
-      </Suspense>
+      </Suspense> */}
     </div>
   )
 }
