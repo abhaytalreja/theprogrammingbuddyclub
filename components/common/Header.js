@@ -11,8 +11,8 @@ export default function Header({ logoImage }) {
             <Image
               src="/theprogrammingbuddyclub.png"
               alt="The Programming Buddy Club Logo"
-              width={64}
-              height={64}
+              width="64"
+              height="64"
             ></Image>
           </div>
           <div className="md:text-3xl text-lg font-bold py-2">
