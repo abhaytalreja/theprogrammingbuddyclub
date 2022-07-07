@@ -33,7 +33,7 @@ export default function CustomHead({
         content={`${title} | ${description}`}
       ></meta>
       <meta property="twitter:image" content={imageUrl}></meta>
-      <meta name="p:domain_verify" content="65277291b8974992ad879e88a2101a0a" />
+      <meta name="p:domain_verify" content="90b37840a7eb7332c302e66f9edb3888" />
     </Head>
   )
 }
