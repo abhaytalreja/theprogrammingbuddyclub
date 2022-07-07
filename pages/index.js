@@ -200,8 +200,8 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
   }
   return (
     <div className="px-4 md:px-12 mt-8">
-      <h1 className="flex flex-row md:inline-flex md:justify-between w-full">
-        <div className="text-xl font-bold py-2">The Programming Buddy Club</div>
+      <h1 className="flex flex-row md:inline-flex md:justify-between w-full text-xl font-bold py-2">
+        The Programming Buddy Club
       </h1>
       <h2 className="">
         Learning Should be free. We at{" "}
