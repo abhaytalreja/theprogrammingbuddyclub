@@ -38,11 +38,11 @@ export default function DefaultLayout({ children }) {
           content="90b37840a7eb7332c302e66f9edb3888"
         />
         {/* Global Site Tag (gtag.js) - Google Analytics */}
-        <Script
+        <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
