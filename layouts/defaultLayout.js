@@ -33,10 +33,10 @@ export default function DefaultLayout({ children }) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f4d001" />
         <meta name="msapplication-TileColor" content="#747474" />
         <meta name="theme-color" content="#ffffff" />
-        <meta
+        {/* <meta
           name="p:domain_verify"
           content="65277291b8974992ad879e88a2101a0a"
-        />
+        /> */}
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         <Script
           async
