@@ -11,7 +11,7 @@ export default function Course({ course }) {
   console.log(course)
   return (
     <>
-      {course ? (
+      {course && course.title ? (
         <>
           <div id="content">
             <CourseContent course={course} />
@@ -74,7 +74,7 @@ export async function getServerSideProps({ query: { slug } }) {
 
   return {
     props: {
-      course: courses[0].document.fields,
+      course: courses && courses[0]?.document ? courses[0].document.fields : {},
     },
   }
 }

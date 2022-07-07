@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Rating({ rating }) {
+export default function Rating({ rating, customClass }) {
   return (
     <ul className="flex justify-center">
       {[1, 2, 3, 4, 5].map((item) => {
@@ -12,7 +12,7 @@ export default function Rating({ rating }) {
                 focusable="false"
                 data-prefix="fas"
                 data-icon="star"
-                className="w-4 text-amber-500 mr-1"
+                className={`w-4 text-amber-500 mr-1 ${customClass}`}
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 576 512"
@@ -32,7 +32,7 @@ export default function Rating({ rating }) {
                 focusable="false"
                 data-prefix="far"
                 data-icon="star"
-                className="w-4 text-amber-500"
+                className={`w-4 text-amber-500 ${customClass}`}
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 576 512"
