@@ -1,7 +1,7 @@
 export default {
   title: "The Programming Buddy Club | Free online Courses",
   header: "The Programming Buddy Club",
-  imageUrl: "/MadeWithJavascriptHomePage.png",
+  imageUrl: "/the-programming-buddy-club-free-online-courses.png",
   keywords:
     "The Programming Buddy Club is the world&#39;s largest destination for free online courses.Course Coupon code Free Coupons and Discount Codes, 100% Free Coupon Save up to 100% on Skillshare, Eduonix and Linkedin Learning Courses today! Discover discounted \x26 Free online Courses, ",
   description:
