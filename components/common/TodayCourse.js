@@ -33,11 +33,11 @@ export default function TodayCourse({ course, isLast }) {
                   : "Discount Udemy Coupon - Save Now"}
               </pan>
               <a
-                href={`https://theprogramminbuddy.club${course.document.fields.searchUrl}`}
+                href={`https://theprogrammingbuddy.club${course.document.fields.searchUrl}`}
                 className="text-blue-500 underline cursor-pointer"
                 target="_blank"
               >
-                https://theprogramminbuddy.club
+                https://theprogrammingbuddy.club
                 {course.document.fields.searchUrl}
               </a>
             </p>
