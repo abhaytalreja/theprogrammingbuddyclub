@@ -3,6 +3,7 @@ import Rating from "../common/Rating"
 import Image from "next/image"
 import TimeAgo from "javascript-time-ago"
 import Link from "next/link"
+import CategoryTag from "../Categories/CategoryTag"
 // English.
 import en from "javascript-time-ago/locale/en"
 TimeAgo.addDefaultLocale(en)
@@ -33,14 +34,10 @@ export default function CoursePreview({ course, index }) {
             </div>
           </div>
         </div>
-        <Link href={`/${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
+        <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
           <a>
             <Image
-              src={
-                course.images.imgur_480x270
-                  ? course.images.imgur_480x270
-                  : course.images.image_480x270
-              }
+              src={course.images.image_480x270}
               alt={course.title}
               width="480"
               height="270"
@@ -71,12 +68,22 @@ export default function CoursePreview({ course, index }) {
         </span> */}
       </div>
       <div className="mt-2">
-        <h3 className="text-gray-900 title-font font-medium">
+        <h3 className="text-gray-900 title-font font-medium mb-2">
           <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
             {course.title}
           </Link>
         </h3>
-        <div className="text-amber-500 font-bold flex justify-start py-1">
+        <div className="">
+          <CategoryTag
+            title={course.primary_category.title}
+            title_cleaned={course.primary_category.title_cleaned}
+          />
+          <CategoryTag
+            title={course.primary_subcategory.title}
+            title_cleaned={course.primary_subcategory.title_cleaned}
+          />
+        </div>
+        <div className="text-amber-500 font-bold flex justify-start py-1 mt-2">
           <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
             <a className="inline-flex">
               <Rating rating={course.avg_rating_recent} />{" "}

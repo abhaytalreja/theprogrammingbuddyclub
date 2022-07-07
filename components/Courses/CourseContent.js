@@ -7,6 +7,7 @@ import Bullet from "@/components/common/Icons/Bullet"
 import Checks from "@/components/common/Icons/Checks"
 import Play from "../common/Icons/Play"
 import Quiz from "../common/Icons/Quiz"
+import CategoryTag from "../Categories/CategoryTag"
 TimeAgo.addDefaultLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
@@ -51,6 +52,16 @@ export default function CourseContent({ course }) {
           <h1 className="font-medium title-font mt-4 text-gray-900 text-2xl">
             {course.title} {titleSuffix}
           </h1>
+          <div className="">
+            <CategoryTag
+              title={course.primary_category.title}
+              title_cleaned={course.primary_category.title_cleaned}
+            />
+            <CategoryTag
+              title={course.primary_subcategory.title}
+              title_cleaned={course.primary_subcategory.title_cleaned}
+            />
+          </div>
           <div className="text-gray-600 text-2xl font-bold my-4">
             {course.discountPrice}{" "}
             <span className="font-light line-through ml-1">
@@ -120,7 +131,7 @@ export default function CourseContent({ course }) {
           </div>
           <div className="flex flex-col justify-start">
             Created by:{" "}
-            {course.visible_instructors.map((instructor, instructorIndex) => (
+            {course.visible_instructors?.map((instructor, instructorIndex) => (
               <>
                 <a
                   href={`https://udemy.com${instructor.url}`}
@@ -232,7 +243,7 @@ export default function CourseContent({ course }) {
               Course Content:
             </h3>
             <div>
-              {course.curriculum_context.data.sections.map(
+              {course.curriculum_context.data.sections?.map(
                 (section, sectionId) => (
                   <div
                     key={section.index}

@@ -7,6 +7,39 @@ import Head from "next/head"
 import ErrorPage from "../404"
 import FireStoreParser from "firestore-parser"
 
+const courseFields = [
+  { fieldPath: "discountPercent" },
+  { fieldPath: "title" },
+  { fieldPath: "avg_rating_recent" },
+  { fieldPath: "num_subscribers" },
+  { fieldPath: "listPrice" },
+  { fieldPath: "discountPrice" },
+  { fieldPath: "updateDate" },
+  { fieldPath: "images.image_480x270" },
+  { fieldPath: "campaign.end_time" },
+  { fieldPath: "campaign.uses_remaining" },
+  { fieldPath: "campaignEnd" },
+  { fieldPath: "url" },
+  { fieldPath: "primary_category.title_cleaned" },
+  { fieldPath: "primary_category.title" },
+  { fieldPath: "primary_subcategory.title_cleaned" },
+  { fieldPath: "primary_subcategory.title" },
+  { fieldPath: "slider_menu.data.num_reviews" },
+  { fieldPath: "description" },
+  { fieldPath: "slider_menu.data.badge_family" },
+  { fieldPath: "slider_menu.data.num_reviews" },
+  { fieldPath: "visible_instructors" },
+  { fieldPath: "lastUpdated" },
+  { fieldPath: "courseLocale" },
+  { fieldPath: "caption" },
+  { fieldPath: "curriculum_context" },
+  { fieldPath: "incentives" },
+  { fieldPath: "whatYouLearn" },
+  { fieldPath: "courseDescription" },
+  { fieldPath: "reviews_context" },
+  { fieldPath: "link" },
+]
+
 export default function Course({ course }) {
   return (
     <>
@@ -34,6 +67,9 @@ export async function getServerSideProps({ query: { slug } }) {
   const firestoreQuery = {
     structuredQuery: {
       from: [{ collectionId: "courses" }],
+      select: {
+        fields: courseFields,
+      },
       where: {
         compositeFilter: {
           filters: [

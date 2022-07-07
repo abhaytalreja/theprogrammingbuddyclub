@@ -20,10 +20,15 @@ const courseFields = [
   { fieldPath: "listPrice" },
   { fieldPath: "discountPrice" },
   { fieldPath: "updateDate" },
-  { fieldPath: "images" },
-  { fieldPath: "campaign" },
+  { fieldPath: "images.image_480x270" },
+  { fieldPath: "campaign.end_time" },
+  { fieldPath: "campaign.uses_remaining" },
   { fieldPath: "campaignEnd" },
   { fieldPath: "url" },
+  { fieldPath: "primary_category.title_cleaned" },
+  { fieldPath: "primary_category.title" },
+  { fieldPath: "primary_subcategory.title_cleaned" },
+  { fieldPath: "primary_subcategory.title" },
 ]
 
 const firestoreQuery = {
@@ -270,7 +275,6 @@ export async function getServerSideProps() {
   )
   const freeResponseJson = await freeResponse.json()
   const freeCourses = await FireStoreParser(freeResponseJson)
-  // console.log("freeCourses", freeCourses)
 
   const discountResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -284,7 +288,6 @@ export async function getServerSideProps() {
   )
   const discountResponseJson = await discountResponse.json()
   const discountCourses = await FireStoreParser(discountResponseJson)
-  // console.log("discountCourses", discountCourses)
 
   const expiredResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -299,15 +302,11 @@ export async function getServerSideProps() {
   const expiredResponseJson = await expiredResponse.json()
   const expiredCourses = await FireStoreParser(expiredResponseJson)
 
-  // console.log("expiredCourses", expiredCourses)
-
   return {
     props: {
       freeCourses: freeCourses.length === 1 ? [] : freeCourses,
       discountCourses: discountCourses.length === 1 ? [] : discountCourses,
       expiredCourses: expiredCourses.length === 1 ? [] : expiredCourses,
-      // posts,
-      // templates,
     },
   }
 }
