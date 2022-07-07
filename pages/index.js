@@ -303,8 +303,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      freeCourses,
-      discountCourses,
+      freeCourses: freeCourses.length === 1 ? [] : freeCourses,
+      discountCourses: discountCourses.length === 1 ? [] : discountCourses,
       expiredCourses: expiredCourses.length === 1 ? [] : expiredCourses,
       // posts,
       // templates,
