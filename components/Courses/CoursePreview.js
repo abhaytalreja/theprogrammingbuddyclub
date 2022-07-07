@@ -37,7 +37,7 @@ export default function CoursePreview({ course, index }) {
         <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
           <a>
             <Image
-              src={course.images.image_480x270}
+              src={course.images.image_240x135}
               alt={course.title}
               width="480"
               height="270"
