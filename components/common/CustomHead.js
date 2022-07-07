@@ -13,7 +13,7 @@ export default function CustomHead({
       <title>
         {title} | {description}
       </title>
-      <meta name="title" content={`${title} | ${description}`}></meta>
+      <meta name="title" content={`${title}`}></meta>
       <meta name="keywords" content={keywords}></meta>
       <meta name="description" content={description}></meta>
       <meta property="og:type" content="website"></meta>

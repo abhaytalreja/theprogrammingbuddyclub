@@ -7,4 +7,5 @@ export default {
   description:
     "Showcase of the most amazing projects The Programming Buddy Club on planet Earth!",
   NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || "",
+  url: "https://programmingbuddy.club",
 }

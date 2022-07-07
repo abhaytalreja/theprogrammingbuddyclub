@@ -2,10 +2,11 @@ import React from "react"
 import CourseContent from "@/components/Courses/CourseContent"
 import siteConfig from "@/config/siteConfig"
 import CustomHead from "@/components/common/CustomHead"
-import DefaultErrorPage from "next/error"
 import Head from "next/head"
 import ErrorPage from "../404"
 import FireStoreParser from "firestore-parser"
+
+const keyword_extractor = require("keyword-extractor")
 
 const courseFields = [
   { fieldPath: "discountPercent" },
@@ -38,6 +39,7 @@ const courseFields = [
   { fieldPath: "courseDescription" },
   { fieldPath: "reviews_context" },
   { fieldPath: "link" },
+  { fieldPath: "searchUrl" },
 ]
 
 export default function Course({ course }) {
@@ -45,6 +47,21 @@ export default function Course({ course }) {
     <>
       {course && course.title ? (
         <>
+          <CustomHead
+            title={`${course.title} | Free Udemy Course ${course.primary_category.title_cleaned}, ${course.primary_subcategory.title_cleaned}`}
+            imageUrl={course.images.image_480x270}
+            keywords={keyword_extractor.extract(
+              `${course.description} ${course.primary_category.title} ${course.primary_subcategory.title}`,
+              {
+                language: "english",
+                remove_digits: true,
+                return_changed_case: true,
+                remove_duplicates: false,
+              }
+            )}
+            description={course.description}
+            website={siteConfig.url + course.searchUrl}
+          />
           <div id="content">
             <CourseContent course={course} />
           </div>
