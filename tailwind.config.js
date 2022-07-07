@@ -12,6 +12,10 @@ module.exports = {
       fontFamily: {
         varela: ["Varela Round", "sans-serif"],
       },
+      height: {
+        128: "32rem",
+        156: "40rem",
+      },
     },
   },
   plugins: [],

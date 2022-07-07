@@ -48,8 +48,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="bg-gray-100">
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 text-lg text-center sm:text-left">
+        <div className="container mx-auto py-8 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p className="text-gray-500 text-lg text-center sm:text-left border-gray-200 border-b pb-2">
             © 2022 TheProgrammingBuddyClub
           </p>
           <Social />

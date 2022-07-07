@@ -17,7 +17,7 @@ export default function Header({ logoImage }) {
           The Programming Buddy Club
         </div>
       </div>
-      <hr className="border-2 mt-2 border-slate-50 visible md:invisible"></hr>
+      <hr className="border mt-2 border-gray-200 visible md:invisible"></hr>
       <div className="py-2 md:py-4 flex justify-center  md:mx-0 mx-auto">
         <Social />
       </div>
