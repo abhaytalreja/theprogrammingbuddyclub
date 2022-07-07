@@ -41,6 +41,15 @@ const firestoreQuery = {
                 stringValue: "",
               },
             },
+            fieldFilter: {
+              field: {
+                fieldPath: "primary_subcategory.title_cleaned",
+              },
+              op: "EQUAL",
+              value: {
+                stringValue: "",
+              },
+            },
           },
         ],
         op: "AND",
@@ -58,6 +67,8 @@ export default function Category({ courses, slug }) {
 
   const loadMoreFreeCourses = async () => {
     firestoreQuery.structuredQuery.offset = totalCourses.length
+    firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
+      slug
     firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
       slug
 
@@ -104,6 +115,8 @@ export default function Category({ courses, slug }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
+  firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
+    slug
   firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
     slug
 

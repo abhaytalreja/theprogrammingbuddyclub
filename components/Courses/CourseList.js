@@ -6,11 +6,11 @@ export default function CourseList({ courses }) {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-4 mx-auto">
-        <>
-          {courses && courses.length > 0 ? (
-            <div className="flex flex-wrap -m-4">
-              {courses.map((course, index) => {
-                course.document ? (
+        {courses ? (
+          <div className="flex flex-wrap -m-4">
+            {courses.map((course, index) => (
+              <>
+                {course?.document ? (
                   <CoursePreview
                     index={index}
                     key={course.document.name.substring(
@@ -26,19 +26,19 @@ export default function CourseList({ courses }) {
                       <a className="text-blue-500 underline">here</a>
                     </Link>
                   </div>
-                )
-              })}
-            </div>
-          ) : (
-            <div>
-              No courses in this category so far. Please try other categories
-              and check out our latest courses{" "}
-              <Link href="/">
-                <a className="text-blue-500 underline">here</a>
-              </Link>
-            </div>
-          )}
-        </>
+                )}
+              </>
+            ))}
+          </div>
+        ) : (
+          <div>
+            No courses in this category so far. Please try other categories and
+            check out our latest courses{" "}
+            <Link href="/">
+              <a className="text-blue-500 underline">here</a>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )
