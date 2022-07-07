@@ -46,7 +46,7 @@ export default function CoursePreview({ course, index }) {
               height="270"
               layout="responsive"
               className="opacity-80"
-              priority={index < 4}
+              priority={index < 1 && course.discountPercent === 100}
             />
           </a>
         </Link>
