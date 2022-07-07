@@ -270,7 +270,7 @@ export async function getServerSideProps() {
   )
   const freeResponseJson = await freeResponse.json()
   const freeCourses = await FireStoreParser(freeResponseJson)
-  console.log("freeCourses", freeCourses)
+  // console.log("freeCourses", freeCourses)
 
   const discountResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -284,7 +284,7 @@ export async function getServerSideProps() {
   )
   const discountResponseJson = await discountResponse.json()
   const discountCourses = await FireStoreParser(discountResponseJson)
-  console.log("discountCourses", discountCourses)
+  // console.log("discountCourses", discountCourses)
 
   const expiredResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
@@ -299,7 +299,7 @@ export async function getServerSideProps() {
   const expiredResponseJson = await expiredResponse.json()
   const expiredCourses = await FireStoreParser(expiredResponseJson)
 
-  console.log("expiredCourses", expiredCourses)
+  // console.log("expiredCourses", expiredCourses)
 
   return {
     props: {
