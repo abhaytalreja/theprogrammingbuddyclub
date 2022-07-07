@@ -14,7 +14,7 @@ export default function CoursePreview({ course, index }) {
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
       <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
-        Expiry {timeAgo.format(new Date(course.campaign.end_time), "round")}
+        Expiry {timeAgo.format(new Date(course.campaignEnd), "round")}
         {course.campaign.uses_remaining && (
           <span> or {course.campaign.uses_remaining} uses</span>
         )}
