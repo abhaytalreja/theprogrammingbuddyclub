@@ -24,7 +24,7 @@ export default function DailyImage({ savings }) {
             />
           </svg> */}
           <Image
-            src="/programmingbuddyclub.png"
+            src="/programmingBuddyClub.png"
             alt="The Programming Buddy Club Logo"
             width={1080}
             height={240}
