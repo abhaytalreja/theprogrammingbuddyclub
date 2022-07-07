@@ -28,7 +28,8 @@ export default function CourseContent({ course }) {
     }
   }
   const getRating = (count) => {
-    const percent = (100 * count) / course.slider_menu.data.num_reviews
+    const percent =
+      count != 0 ? (100 * count) / course.slider_menu.data.num_reviews : 0
     return { width: `${percent}%` }
   }
   return (
@@ -99,7 +100,7 @@ export default function CourseContent({ course }) {
               </svg>
             </span>
             Price expires{" "}
-            {timeAgo.format(new Date(course.campaign.end_time), "round")}
+            {timeAgo.format(new Date(course.campaignEnd / 1000), "round")}
             {course.campaign.uses_remaining && (
               <span>or {course.campaign.uses_remaining} uses</span>
             )}
@@ -132,7 +133,7 @@ export default function CourseContent({ course }) {
           <div className="flex flex-col justify-start">
             Created by:{" "}
             {course.visible_instructors?.map((instructor, instructorIndex) => (
-              <>
+              <div key={instructorIndex}>
                 <a
                   href={`https://udemy.com${instructor.url}`}
                   className="text-blue-500 underline mr-4"
@@ -140,7 +141,7 @@ export default function CourseContent({ course }) {
                 >
                   {instructor.display_name}
                 </a>
-              </>
+              </div>
             ))}
           </div>
           <div className="flex flex-col justify-start my-4 font-mono">
