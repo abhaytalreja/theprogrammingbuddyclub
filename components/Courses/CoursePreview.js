@@ -33,7 +33,7 @@ export default function CoursePreview({ course, index }) {
             </div>
           </div>
         </div>
-        <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
+        <Link href={`/${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
           <a>
             <Image
               src={

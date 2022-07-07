@@ -5,7 +5,7 @@ import Social from "./Social"
 
 export default function Footer() {
   return (
-    <footer className="text-gray-600 body-font border-t-2 border-gray-200">
+    <footer className="text-gray-600 body-font border-t-2 border-gray-200 m-12">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 m-auto text-center md:text-left">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
@@ -49,7 +49,7 @@ export default function Footer() {
       </div>
       <div className="bg-gray-100">
         <div className="container mx-auto py-8 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 text-lg text-center sm:text-left border-gray-200 border-b pb-2">
+          <p className="text-gray-800 text-lg text-center sm:text-left border-gray-100 border-b md:border-0 pb-2">
             © 2022 TheProgrammingBuddyClub
           </p>
           <Social />
