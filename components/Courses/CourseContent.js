@@ -100,9 +100,12 @@ export default function CourseContent({ course }) {
               </svg>
             </span>
             Price expires{" "}
-            {timeAgo.format(new Date(course.campaignEnd / 1000), "round")}
+            {timeAgo.format(new Date(course.campaignEnd), "round")}{" "}
             {course.campaign.uses_remaining && (
-              <span>or {course.campaign.uses_remaining} uses</span>
+              <span className="ml-1">
+                {" "}
+                or {course.campaign.uses_remaining} uses
+              </span>
             )}
           </div>
           <h2 className="mt-4 text-gray-900 text-lg">
