@@ -8,7 +8,6 @@ import ErrorPage from "../404"
 import FireStoreParser from "firestore-parser"
 
 export default function Course({ course }) {
-  console.log(course)
   return (
     <>
       {course && course.title ? (
@@ -32,7 +31,6 @@ export default function Course({ course }) {
 export async function getServerSideProps({ query: { slug } }) {
   const searchUrl = `/course/${slug}/`
 
-  console.log(searchUrl)
   const firestoreQuery = {
     structuredQuery: {
       from: [{ collectionId: "courses" }],
@@ -70,7 +68,6 @@ export async function getServerSideProps({ query: { slug } }) {
   )
   const freeResponseJson = await freeResponse.json()
   const courses = await FireStoreParser(freeResponseJson)
-  console.log("courses", courses)
 
   return {
     props: {
