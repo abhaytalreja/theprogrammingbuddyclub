@@ -93,50 +93,17 @@ const discountQuery = {
 }
 
 const nowNumber = +Date.parse(new Date())
-const expiredQuery = {
-  structuredQuery: {
-    from: [{ collectionId: "courses" }],
-    orderBy: [{ field: { fieldPath: "campaignEnd" }, direction: "DESCENDING" }],
-    select: {
-      fields: courseFields,
-    },
-    where: {
-      compositeFilter: {
-        filters: [
-          {
-            fieldFilter: {
-              field: {
-                fieldPath: "campaignEnd",
-              },
-              op: "LESS_THAN_OR_EQUAL",
-              value: {
-                integerValue: nowNumber,
-              },
-            },
-          },
-        ],
-        op: "AND",
-      },
-    },
-    limit: 8,
-  },
-}
-
-export default function Home({ freeCourses, discountCourses, expiredCourses }) {
+export default function Home({ freeCourses, discountCourses }) {
   const [showMoreFreeCourses, setShowMoreFreeCourses] = useState(
     freeCourses.length > 0 && freeCourses.length % 8 == 0
   )
   const [showMoreDiscountCourses, setShowMoreDiscountCourses] = useState(
     discountCourses.length > 0 && discountCourses.length % 8 == 0
   )
-  const [showMoreExpiredCourses, setShowMoreExpiredCourses] = useState(
-    expiredCourses.length > 0 && expiredCourses.length % 8 == 0
-  )
 
   const [totalFreeCourses, setTotalFreeCourses] = useState(freeCourses)
   const [totalDiscountCourses, setTotalDiscountCourses] =
     useState(discountCourses)
-  const [totalExpiredCourses, setTotalExpiredCourses] = useState(expiredCourses)
 
   const loadMoreFreeCourses = async (type) => {
     if (type === "free") {
@@ -177,25 +144,6 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
       const newFetchedCourses = [...totalDiscountCourses, ...fetchedCourses]
       setTotalDiscountCourses(newFetchedCourses)
       setShowMoreDiscountCourses(newFetchedCourses.length % 8 == 0)
-    } else if (type === "expired") {
-      expiredQuery.structuredQuery.offset = totalExpiredCourses.length
-
-      const expiredResponse = await fetch(
-        `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...expiredQuery }),
-        }
-      )
-      const expiredResponseJson = await expiredResponse.json()
-      const fetchedCourses = await FireStoreParser(expiredResponseJson)
-      fetchedCourses.shift()
-      const newFetchedCourses = [...totalExpiredCourses, ...fetchedCourses]
-      setTotalExpiredCourses(newFetchedCourses)
-      setShowMoreExpiredCourses(newFetchedCourses.length % 8 == 0)
     }
   }
   return (
@@ -238,20 +186,6 @@ export default function Home({ freeCourses, discountCourses, expiredCourses }) {
           </button>
         </div>
       )}
-      <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-20">
-        Expired Udemy Courses
-      </h3>
-      <CourseList courses={totalExpiredCourses} />
-      {showMoreExpiredCourses && (
-        <div className="w-full flex justify-center mt-8">
-          <button
-            className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl w-2/3"
-            onClick={() => loadMoreFreeCourses("expired")}
-          >
-            Load More
-          </button>
-        </div>
-      )}
       <Suspense fallback={`Loading...`}>
         <CategoriesList />
       </Suspense>
@@ -288,25 +222,10 @@ export async function getServerSideProps() {
   )
   const discountResponseJson = await discountResponse.json()
   const discountCourses = await FireStoreParser(discountResponseJson)
-
-  const expiredResponse = await fetch(
-    `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...expiredQuery }),
-    }
-  )
-  const expiredResponseJson = await expiredResponse.json()
-  const expiredCourses = await FireStoreParser(expiredResponseJson)
-
   return {
     props: {
       freeCourses: freeCourses.length === 1 ? [] : freeCourses,
       discountCourses: discountCourses.length === 1 ? [] : discountCourses,
-      expiredCourses: expiredCourses.length === 1 ? [] : expiredCourses,
     },
   }
 }
