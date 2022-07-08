@@ -330,6 +330,26 @@ export default function CourseContent({ course }) {
               Get The Course
             </a>
           </div>
+          <div className="my-4">
+            If you like to get inspired by great web projects, you should check
+            out{" "}
+            <a
+              href="https://www.madewithjavascript.club"
+              title="Made with Javascript Club"
+              className="text-blue-500 underline pointer-cursor"
+            >
+              Made with Javascript
+            </a>
+            . If you have a project that you wish to share with the world, feel
+            free to submit your project on{" "}
+            <a
+              href="https://www.madewithjavascript.club"
+              title="Made with Javascript Club"
+              className="text-blue-500 underline pointer-cursor"
+            >
+              Made with Javascript Club website.
+            </a>
+          </div>
         </div>
       </div>
     </section>
