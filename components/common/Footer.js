@@ -15,6 +15,7 @@ export default function Footer() {
                 alt="The Programming Buddy Club Logo"
                 width={64}
                 height={64}
+                layout="responsive"
               ></Image>
             </div>
             <span className="ml-3 text-xl">The Programming Buddy Club</span>

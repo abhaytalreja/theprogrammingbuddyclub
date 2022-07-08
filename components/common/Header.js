@@ -13,6 +13,7 @@ export default function Header({ logoImage }) {
               alt="The Programming Buddy Club Logo"
               width="64"
               height="64"
+              layout="responsive"
             ></Image>
           </div>
           <div className="md:text-3xl text-lg font-bold py-2">
