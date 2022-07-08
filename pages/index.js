@@ -34,7 +34,7 @@ const courseFields = [
 const firestoreQuery = {
   structuredQuery: {
     from: [{ collectionId: "courses" }],
-    orderBy: [{ field: { fieldPath: "updateDate" }, direction: "ASCENDING" }],
+    orderBy: [{ field: { fieldPath: "updateDate" }, direction: "DESCENDING" }],
     select: {
       fields: courseFields,
     },
