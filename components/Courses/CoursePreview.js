@@ -22,16 +22,14 @@ export default function CoursePreview({ course, index }) {
       <div className="block relative rounded overflow-hidden">
         <div className="relative w-full z-10">
           <div
-            className={`origin-top float-left mt-8 w-24 text-center absolute -left-20 -top-4 text-lg md:text-md border border-gray-400 ${
+            className={`origin-top float-left mt-8 w-24 text-center absolute -left-20 -top-4 text-lg md:text-md border border-gray-400 font-bold ${
               course.discountPercent == 100
                 ? "bg-gray-600 text-white"
                 : "bg-gray-600 text-white"
             }`}
             style={{ transform: "translateX(50%) rotate(-45deg)" }}
           >
-            <div className="font-bold">
-              {course.discountPercent == 100 ? "Free" : "Deal"}
-            </div>
+            {course.discountPercent == 100 ? "Free" : "Deal"}
           </div>
         </div>
         <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
