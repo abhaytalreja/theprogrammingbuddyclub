@@ -4,7 +4,7 @@ export default function Rating({ rating, customClass }) {
   return (
     <ul className="flex justify-center">
       {[1, 2, 3, 4, 5].map((item) => {
-        if (rating > item) {
+        if (rating >= item) {
           return (
             <li key={item}>
               <svg
