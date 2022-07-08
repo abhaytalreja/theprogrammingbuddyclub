@@ -57,25 +57,32 @@ const firestoreQuery = {
         op: "AND",
       },
     },
+    limit: 30,
   },
 }
 
 export default function Today({ courses }) {
-  const sortedCourses = courses.sort((a, b) =>
-    a.document.fields.discountPercent > b.document.fields.discountPercent
-      ? -1
-      : 1
-  )
-  const savings = sortedCourses.reduce((accumulator, course) => {
-    const price = course.document.fields.savingPrice
-      .replace(/\s+/g, " ")
-      .trim()
-      .replace(" US$", "")
-      .replace(" US", "")
-      .replace(",", ".")
-      .replace("$", "")
-    return accumulator + +price
-  }, 0)
+  const sortedCourses =
+    courses && courses.length > 0
+      ? courses.sort((a, b) =>
+          a.document.fields.discountPercent > b.document.fields.discountPercent
+            ? -1
+            : 1
+        )
+      : []
+  const savings =
+    courses && courses.length > 0
+      ? sortedCourses.reduce((accumulator, course) => {
+          const price = course.document?.fields.savingPrice
+            .replace(/\s+/g, " ")
+            .trim()
+            .replace(" US$", "")
+            .replace(" US", "")
+            .replace(",", ".")
+            .replace("$", "")
+          return accumulator + +price
+        }, 0)
+      : 0
 
   const downloadImage = () => {
     var node = document.getElementById("today-image")
