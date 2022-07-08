@@ -38,33 +38,5 @@
   { "title": "Resume and CV Writing", "url": "/category/resume/" },
   { "title": "Self-Esteem", "url": "/category/self-esteem/" },
   { "title": "Parenting", "url": "/category/parenting/" },
-  { "title": "CBT Cognitive Behavioral Therapy", "url": "/category/cbt/" },
-  {
-    "title": "Business Communication",
-    "url": "/category/business-communication/"
-  },
-  { "title": "Voice Training", "url": "/category/voice-training/" },
-  { "title": "Job Search", "url": "/category/job-search/" },
-  { "title": "Relationship Building", "url": "/category/relationship/" },
-  {
-    "title": "Manifestation and Law of Attraction",
-    "url": "/category/law-of-attraction/"
-  },
-  { "title": "Stress Management", "url": "/category/stress-management/" },
-  { "title": "Sound Therapy", "url": "/category/sound-therapy/" },
-  { "title": "Art Therapy", "url": "/category/art-therapy/" },
-  { "title": "Manager Training", "url": "/category/manager-training/" },
-  { "title": "Business Writing", "url": "/category/business-writing/" },
-  { "title": "Focus Mastery", "url": "/category/focus-mastery/" },
-  { "title": "Goal Setting", "url": "/category/goal-setting/" },
-  { "title": "Career Development", "url": "/category/career-development/" },
-  { "title": "Personal Networking", "url": "/category/personal-networking/" },
-  { "title": "Study Skills", "url": "/category/study-skills/" },
-  { "title": "Writing", "url": "/category/writing/" },
-  { "title": "Neuroplasticity", "url": "/category/neuroplasticity/" },
-  { "title": "Screenwriting", "url": "/category/screenwriting/" },
-  { "title": "Counseling", "url": "/category/counseling/" },
-  { "title": "Notion Workspace", "url": "/category/notion-workspace/" },
-  { "title": "LinkedIn", "url": "/category/linkedin/" },
-  { "title": "Tarot Reading", "url": "/category/tarot-reading/" }
+  { "title": "CBT Cognitive Behavioral Therapy", "url": "/category/cbt/" }
 ]

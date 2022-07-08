@@ -78,46 +78,5 @@
     "url": "/category/system-design-interview/"
   },
   { "title": "Cinema 4D", "url": "/category/cinema-4d/" },
-  { "title": "HTML", "url": "/category/html/" },
-  { "title": "Comic Book Creation", "url": "/category/comic-book-creation/" },
-  { "title": "Affinity Publisher", "url": "/category/affinity-publisher/" },
-  { "title": "Perspective Drawing", "url": "/category/perspective-drawing/" },
-  { "title": "CorelDRAW", "url": "/category/coreldraw/" },
-  { "title": "VFX Visual Effects", "url": "/category/vfx-visual-effects/" },
-  {
-    "title": "Digital Character Sculpting",
-    "url": "/category/character-sculpting/"
-  },
-  { "title": "Fashion", "url": "/category/fashion/" },
-  { "title": "Substance Painter", "url": "/category/substance-painter/" },
-  { "title": "HTML5", "url": "/category/html5/" },
-  { "title": "Art Composition", "url": "/category/art-composition/" },
-  { "title": "Houdini Software", "url": "/category/houdini-software/" },
-  { "title": "Web Development", "url": "/category/web-development/" },
-  {
-    "title": "Geometric Dimensioning and Tolerancing (GD&T)",
-    "url": "/category/geometric-dimensioning-and-tolerancing-gdt/"
-  },
-  { "title": "ANSYS", "url": "/category/ansys/" },
-  {
-    "title": "Social Media Management",
-    "url": "/category/social-media-management/"
-  },
-  { "title": "Anatomy", "url": "/category/anatomy/" },
-  { "title": "HVAC", "url": "/category/hvac/" },
-  { "title": "Color Theory", "url": "/category/color-theory/" },
-  { "title": "Nuke", "url": "/category/nuke/" },
-  { "title": "Data Visualization", "url": "/category/data-visualization/" },
-  { "title": "Pencil Drawing", "url": "/category/pencil-drawing/" },
-  { "title": "CATIA", "url": "/category/catia/" },
-  { "title": "Autodesk Inventor", "url": "/category/autodesk-inventor/" },
-  { "title": "LEED", "url": "/category/leed/" },
-  { "title": "Siemens NX", "url": "/category/siemens-nx/" },
-  { "title": "Level Design", "url": "/category/level-design/" },
-  { "title": "Jewelry Design", "url": "/category/jewelry-design/" },
-  { "title": "CSS Animations", "url": "/category/css-animations/" },
-  { "title": "Vector Graphics", "url": "/category/vector-graphic/" },
-  { "title": "Clip Studio Paint", "url": "/category/clipstudiopaint/" },
-  { "title": "Affinity Photo", "url": "/category/affinity-photo/" },
-  { "title": "AutoCAD Civil 3D", "url": "/category/autocad-civil-3d/" }
+  { "title": "HTML", "url": "/category/html/" }
 ]

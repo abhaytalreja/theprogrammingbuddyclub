@@ -50,21 +50,5 @@
   {
     "title": "Professional Scrum Master (PSM)",
     "url": "/category/professional-scrum-master-psm/"
-  },
-  { "title": "Six Sigma", "url": "/category/six-sigma/" },
-  { "title": "Online Business", "url": "/category/online-business/" },
-  { "title": "Six Sigma Green Belt", "url": "/category/six-sigma-green-belt/" },
-  { "title": "Supply Chain", "url": "/category/supply-chain/" },
-  { "title": "E-Commerce", "url": "/category/e-commerce/" },
-  { "title": "Marketing Strategy", "url": "/category/marketing-strategy/" },
-  { "title": "Quality Management", "url": "/category/quality-management/" },
-  { "title": "Shopify", "url": "/category/shopify/" },
-  { "title": "Product Owner", "url": "/category/product-owner/" },
-  { "title": "QuickBooks Online", "url": "/category/quickbooks-online/" },
-  { "title": "Excel", "url": "/category/excel/" },
-  { "title": "Data Warehouse", "url": "/category/data-warehouse/" },
-  { "title": "PMI-ACP", "url": "/category/pmi-acp/" },
-  { "title": "Business Plan", "url": "/category/business-plan/" },
-  { "title": "Time Management", "url": "/category/time-management/" },
-  { "title": "Shopify Dropshipping", "url": "/category/shopify-dropshipping/" }
+  }
 ]
