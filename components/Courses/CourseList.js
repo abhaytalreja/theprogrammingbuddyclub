@@ -12,9 +12,9 @@ export default function CourseList({ courses }) {
               {course?.document ? (
                 <CoursePreview
                   index={index}
-                  key={course.document.name.substring(
+                  key={`course-item-${course.document.name.substring(
                     course.document.name.lastIndexOf("/") + 1
-                  )}
+                  )}-${index}`}
                   course={course.document.fields}
                 />
               ) : (

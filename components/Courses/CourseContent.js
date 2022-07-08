@@ -8,7 +8,8 @@ import Checks from "@/components/common/Icons/Checks"
 import Play from "../common/Icons/Play"
 import Quiz from "../common/Icons/Quiz"
 import CategoryTag from "../Categories/CategoryTag"
-TimeAgo.addDefaultLocale(en)
+import siteConfig from "@/config/siteConfig"
+TimeAgo.addLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
 
@@ -227,7 +228,7 @@ export default function CourseContent({ course }) {
               <span className="font-semibold">What will you learn:</span>
               <ul>
                 {course.whatYouLearn.map((learn, learnIndex) => (
-                  <li className="my-4 inline-flex">
+                  <li className="my-4 inline-flex" key={`learn-${learnIndex}`}>
                     <Checks />
                     {learn}
                   </li>
@@ -261,8 +262,11 @@ export default function CourseContent({ course }) {
                       </div>
                     </span>
                     <ul className="bg-gray-200 rounded-lg">
-                      {section.items.map((lecture) => (
-                        <li className="flex flex-row md:py-4 py-2 md:px-8 px-2">
+                      {section.items.map((lecture, lectureIndex) => (
+                        <li
+                          className="flex flex-row md:py-4 py-2 md:px-8 px-2"
+                          key={`lecture-${lectureIndex}`}
+                        >
                           <div className="w-full flex justify-between">
                             <div className="flex flex-row">
                               {displayIcon(lecture.item_type)}
@@ -302,20 +306,25 @@ export default function CourseContent({ course }) {
                   </div>
                 </div>
                 <div className="md:flex-grow w-full">
-                  {course.reviews_context.ratingDistribution.map((rating) => (
-                    <div className="flex flex-row">
-                      <span className="m-2">{rating.rating}</span>
-                      <div className="w-full bg-gray-200 rounded-full m-3">
-                        <div
-                          className="bg-amber-500 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
-                          style={getRating(rating.count)}
-                        ></div>{" "}
+                  {course.reviews_context.ratingDistribution.map(
+                    (rating, ratingIndex) => (
+                      <div
+                        className="flex flex-row"
+                        key={`Rating-${ratingIndex}`}
+                      >
+                        <span className="m-2">{rating.rating}</span>
+                        <div className="w-full bg-gray-200 rounded-full m-3">
+                          <div
+                            className="bg-amber-500 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
+                            style={getRating(rating.count)}
+                          ></div>{" "}
+                        </div>
+                        <span className="m-2">
+                          {rating.count}/{course.slider_menu.data.num_reviews}
+                        </span>
                       </div>
-                      <span className="m-2">
-                        {rating.count}/{course.slider_menu.data.num_reviews}
-                      </span>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               </div>
             </div>
@@ -323,7 +332,7 @@ export default function CourseContent({ course }) {
           <div className="w-full flex flex-col justify-center mt-8 border border-theme p-8 md:p-16 rounded-lg">
             <a
               className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl text-center rounded-lg"
-              href={course.link}
+              href={`${siteConfig.url}/go/${course.link}`}
               title={`${course.title} ${titleSuffix} link`}
               target="_blank"
             >
