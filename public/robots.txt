@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://theprogrammingbuddy.club
+
+# Sitemaps
+Sitemap: https://theprogrammingbuddy.club/sitemap.xml
+Sitemap: https://theprogrammingbuddy.club/server-sitemap.xml
