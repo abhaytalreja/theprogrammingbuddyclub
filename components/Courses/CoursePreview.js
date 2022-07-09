@@ -10,9 +10,11 @@ TimeAgo.addDefaultLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
 
-export default function CoursePreview({ course, index }) {
+export default function CoursePreview({ course, index, moreLike }) {
   return (
-    <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+    <div
+      className={`md:w-1/2 p-4 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4"}`}
+    >
       <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
         Expiry {timeAgo.format(new Date(course.campaignEnd), "round")}
         {course.campaign.uses_remaining && (
@@ -47,19 +49,27 @@ export default function CoursePreview({ course, index }) {
         </Link>
       </div>
       <div className="mt-2">
-        <h3 className="text-gray-900 title-font font-medium mb-2">
+        <h3
+          className={`text-gray-900 title-font font-medium mb-2 ${
+            moreLike ? " text-sm" : "text-font"
+          }`}
+        >
           <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
             {course.title}
           </Link>
         </h3>
-        <CategoryTag
-          title={course.primary_category.title}
-          title_cleaned={course.primary_category.title_cleaned}
-        />
-        <CategoryTag
-          title={course.primary_subcategory.title}
-          title_cleaned={course.primary_subcategory.title_cleaned}
-        />
+        {!moreLike && (
+          <CategoryTag
+            title={course.primary_category.title}
+            title_cleaned={course.primary_category.title_cleaned}
+          />
+        )}
+        {!moreLike && (
+          <CategoryTag
+            title={course.primary_subcategory.title}
+            title_cleaned={course.primary_subcategory.title_cleaned}
+          />
+        )}
         <div className="text-amber-500 font-bold flex justify-start py-1 mt-2">
           <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
             <a className="inline-flex text-sm">

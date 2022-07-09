@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import Rating from "../common/Rating"
 import TimeAgo from "javascript-time-ago"
@@ -9,11 +9,24 @@ import Play from "../common/Icons/Play"
 import Quiz from "../common/Icons/Quiz"
 import CategoryTag from "../Categories/CategoryTag"
 import siteConfig from "@/config/siteConfig"
+import getMoreLike from "lib/getMoreLike"
+import CourseList from "./CourseList"
 TimeAgo.addLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
 
 export default function CourseContent({ course }) {
+  const [moreLike, setMoreLike] = useState(null)
+  const primary = course.primary_category.title_cleaned
+  const subcategory = course.primary_subcategory.title_cleaned
+  const searchUrl = course.searchUrl
+
+  useEffect(() => {
+    getMoreLike(primary, subcategory, searchUrl).then((courses) => {
+      setMoreLike(courses)
+    })
+  }, [])
+
   const titleSuffix =
     course.discountPercent === 100
       ? "| Free Udemy Course"
@@ -117,7 +130,6 @@ export default function CourseContent({ course }) {
               {course.slider_menu.data.badge_family}
             </span>
           )}
-
           <div className="flex justify-start py-2">
             <span className="mr-2">
               {Math.round(course.avg_rating_recent * 100) / 100}
@@ -222,7 +234,6 @@ export default function CourseContent({ course }) {
               </ul>
             </div>
           </div>
-
           <div className="w-full border p-8 flex justify-center my-8">
             <div className="text-left text-xl">
               <span className="font-semibold">What will you learn:</span>
@@ -236,13 +247,11 @@ export default function CourseContent({ course }) {
               </ul>
             </div>
           </div>
-
           <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <p className="leading-relaxed text-lg mb-4">
               {course.courseDescription.replace("Description", "")}
             </p>
           </div>
-
           <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <h3 className="leading-relaxed text-2xl font-semibold mb-4">
               Course Content:
@@ -364,6 +373,14 @@ export default function CourseContent({ course }) {
               Made with Javascript Club website.
             </a>
           </div>
+          {moreLike && moreLike.length > 0 && (
+            <>
+              <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
+                Releated Courses
+              </h3>
+              <CourseList courses={moreLike} moreLike={true} />
+            </>
+          )}
         </div>
       </div>
     </section>
