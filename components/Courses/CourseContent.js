@@ -264,7 +264,7 @@ export default function CourseContent({ course }) {
                     <ul className="bg-gray-200 rounded-lg">
                       {section.items.map((lecture, lectureIndex) => (
                         <li
-                          className="flex flex-row md:py-4 py-2 md:px-8 px-2"
+                          className="flex flex-col md:py-4 py-2 md:px-8 px-2"
                           key={`lecture-${lectureIndex}`}
                         >
                           <div className="w-full flex justify-between">
@@ -274,7 +274,12 @@ export default function CourseContent({ course }) {
                             </div>
                             <div>{lecture.content_summary}</div>
                           </div>
-                          <div>{lecture.description}</div>
+                          <div
+                            className="bg-slate-50 p-2 text-xs rounded-lg"
+                            dangerouslySetInnerHTML={{
+                              __html: lecture.description,
+                            }}
+                          ></div>
                         </li>
                       ))}
                     </ul>
