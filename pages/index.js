@@ -222,7 +222,6 @@ export async function getServerSideProps() {
   )
   const discountResponseJson = await discountResponse.json()
   const discountCourses = await FireStoreParser(discountResponseJson)
-  console.log(discountCourses)
   return {
     props: {
       freeCourses: freeCourses.length === 1 ? [] : freeCourses,
