@@ -29,8 +29,8 @@ export default function TodayCourse({ course, isLast }) {
               <span>{course.document.fields.title}</span>
               <pan>
                 {course.document.fields.discountPercent === 100
-                  ? "Free Udemy Course - Enroll Now"
-                  : "Discount Udemy Coupon - Save Now"}
+                  ? "Free Online Course - Enroll Now"
+                  : "Discount Online Coupon - Save Now"}
               </pan>
               <a
                 href={`https://theprogrammingbuddy.club${course.document.fields.searchUrl}`}

@@ -154,9 +154,11 @@ export default function Home({ freeCourses, discountCourses }) {
       <h2 className="">
         Learning Should be free. We at{" "}
         <Link href="/">theprogrammingbuddy.club</Link> make sure that you get
-        the latest and the best Udemy courses for Free. The best Udemy Free
-        Coupons website that is updated with the latest coupons and also gives
-        you an idean on how much time you have to enroll in the Udemy course.
+        the latest and the best Udemy courses for Free or a at a discount. We do
+        keep track of regular updates on these coupons so you don't need to.
+        Some of the online course platforms like Udemy have a strict policy on
+        the life of these discount coupons. Udemy coupons las for 3 - 30 days
+        depending on the type of coupon the instructor is promoting it with.
       </h2>
       <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
         Free Udemy Courses

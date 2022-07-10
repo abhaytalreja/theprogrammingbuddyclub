@@ -39,7 +39,7 @@ export default function DailyImage({ savings }) {
           </h1>
         </div>
         <div className="text-4xl font-bold my-12 w-full">
-          Free Udemy Courses
+          Free & Discounted Online Courses
         </div>
         <div className="text-xl font-semibold my-8">
           <div>Just click, enroll and learn.</div>

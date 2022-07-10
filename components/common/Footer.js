@@ -26,25 +26,29 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div className="w-full text-md md:text-lg">
-            <div className="text-md font-bold">Free Udemy online courses</div>
+            <div className="text-md font-bold">
+              Free & Discounted Online courses
+            </div>
             Welcome to <Link href="/">theprogrammingbuddy.club</Link>, where you
-            will find ALL free courses of Udemy in an easy and quick way. Udemy
-            is the biggest online courses platform where you can find the widest
-            variety of courses under video on demand. Udemy has a catalog of
-            course categories that goes from web development or design and
-            marketing, to languages ​​or personal development.
+            will find ALL free & discounted courses based on the popularity from
+            sources like Udemy in an easy and quick way. Udemy is the biggest
+            online courses platform where you can find the widest variety of
+            courses under video on demand. Udemy has a catalog of course
+            categories that goes from web development or design and marketing,
+            to languages ​​or personal development.
             <Link href="/">theprogrammingbuddy.club</Link> curates all of the
-            free and discounted courses from Udemy so that you can start
-            learning at the lowest possible cost. Many of our students used to
-            download udemy courses or search for them all over the internet. The
-            problem with that is piracy. We let udemy instructors promote udemy
-            courses and in return we expect our students to give a genuine Udemy
-            course review. This helps the instructors to make their Udemy course
-            better for all their students on Udemy. It also helps prevents
-            students to look for "download free udemy courses". Enrolling in a
-            course at a discount or with a coupon gives you all the benefits of
-            doing a course through Udemy. You also get your certificate from
-            Udemy which you can use to find your next job.
+            free and discounted courses from across the internet so that you can
+            start learning at the lowest possible cost. Many of our students
+            used to download udemy courses or search for them all over the
+            internet. The problem with that is piracy. We let udemy instructors
+            promote udemy courses and in return we expect our students to give a
+            genuine Feedback course review. This helps the instructors to make
+            their online course better for all their students. It also helps
+            prevents students to look for "download free udemy courses" or
+            torrents, which leads to piracy issues for the instructors.
+            Enrolling in a course at a discount or with a coupon gives you all
+            the benefits of doing a course through Udemy. You also get your
+            certificate from Udemy which you can use to find your next job.
           </div>
         </div>
       </div>

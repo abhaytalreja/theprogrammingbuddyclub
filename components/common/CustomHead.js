@@ -28,6 +28,10 @@ export default function CustomHead({
       <meta property="twitter:description" content={`${description}`}></meta>
       <meta property="twitter:image" content={imageUrl}></meta>
       <meta name="p:domain_verify" content="90b37840a7eb7332c302e66f9edb3888" />
+      <meta
+        name="facebook-domain-verification"
+        content="k5ldl6b7uayuu1cpt8fol3y1ocl97q"
+      />
     </Head>
   )
 }

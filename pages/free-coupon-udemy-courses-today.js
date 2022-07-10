@@ -124,11 +124,11 @@ export default function Today({ courses }) {
           </button>
           <DailyImage savings={Math.floor(savings)} />
           <h2 className="font-bold text-2xl my-4">
-            Free & Discount Udemy Courses for Today
+            Free & Discount Online Courses for Today
           </h2>
           <p className="">
-            List of Free and Discounted Udemy Courses posted Every single day.
-            This list of free udemy courses get updated everyday. So bookmark
+            List of Free and Discounted Online Courses posted Every single day.
+            This list of free Online courses get updated everyday. So bookmark
             this page and keep learning!
           </p>
         </div>
