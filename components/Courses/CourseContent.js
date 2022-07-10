@@ -11,7 +11,12 @@ import CategoryTag from "../Categories/CategoryTag"
 import siteConfig from "@/config/siteConfig"
 import getMoreLike from "lib/getMoreLike"
 import CourseList from "./CourseList"
-import ReactPixel from "react-facebook-pixel"
+import dynamic from "next/dynamic"
+
+const ReactPixel = dynamic(() => import("react-facebook-pixel"), {
+  ssr: false,
+})
+
 TimeAgo.addLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
@@ -22,11 +27,11 @@ export default function CourseContent({ course }) {
   const subcategory = course.primary_subcategory.title_cleaned
   const searchUrl = course.searchUrl
   const trackFb = () => {
-    // if (typeof window !== "undefined") {
-    //   ReactPixel.track("Enroll", "UseDiscount", {
-    //     discount: course.discountPercent,
-    //   })
-    // }
+    if (typeof window !== "undefined") {
+      ReactPixel.track("Enroll", "UseDiscount", {
+        discount: course.discountPercent,
+      })
+    }
   }
 
   useEffect(() => {
