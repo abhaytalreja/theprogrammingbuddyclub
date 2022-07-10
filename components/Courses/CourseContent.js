@@ -21,6 +21,13 @@ export default function CourseContent({ course }) {
   const primary = course.primary_category.title_cleaned
   const subcategory = course.primary_subcategory.title_cleaned
   const searchUrl = course.searchUrl
+  const trackFb = () => {
+    if (typeof window !== "undefined") {
+      ReactPixel.track("Enroll", "UseDiscount", {
+        discount: course.discountPercent,
+      })
+    }
+  }
 
   useEffect(() => {
     getMoreLike(primary, subcategory, searchUrl).then((courses) => {
@@ -358,12 +365,7 @@ export default function CourseContent({ course }) {
             If you like to get inspired by great web projects, you should check
             out{" "}
             <a
-              onClick={
-                typeof window !== "undefined" &&
-                ReactPixel.track("Enroll", "UseDiscount", {
-                  discount: course.discountPercent,
-                })
-              }
+              onClick={trackFb}
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
               className="text-blue-500 underline pointer-cursor"
