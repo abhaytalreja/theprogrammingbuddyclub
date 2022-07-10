@@ -19,17 +19,19 @@ export default function CoursePreview({ course, index, moreLike }) {
   const hashtags = (str, char) => {
     return `${char}${str.replaceAll("&", "").replaceAll(" ", "")}`
   }
-  const encodedTwitterUrl = encodeURIComponent(
-    `${course.title} ${titleSuffix} \n ${hashtags(
-      course.primary_category.title,
-      "#"
-    )} ${hashtags(
-      course.primary_subcategory.title,
-      "#"
-    )} \n Follow us @programminbuddy for more... \n\n #theProgrammingBuddyClub \n\n ${
-      siteConfig.url
-    }${course.url.replace(/.*\/\/[^\/]*/, "")}`
-  )
+  const encodedTwitterUrl =
+    !moreLike &&
+    encodeURIComponent(
+      `${course.title} ${titleSuffix} \n ${hashtags(
+        course.primary_category.title,
+        "#"
+      )} ${hashtags(
+        course.primary_subcategory.title,
+        "#"
+      )} \n Follow us @programminbuddy for more... \n\n #theProgrammingBuddyClub \n\n ${
+        siteConfig.url
+      }${course.url.replace(/.*\/\/[^\/]*/, "")}`
+    )
   return (
     <div
       className={`md:w-1/2 p-4 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4"}`}
@@ -115,24 +117,26 @@ export default function CoursePreview({ course, index, moreLike }) {
           >
             {course.discountPercent}% off
           </span>
-          <a
-            href={`https://twitter.com/intent/tweet?url=${encodedTwitterUrl}`}
-            rel="noopener"
-            target="_blank"
-            title="Share on Twitter"
-            className={`ml-2 text-gray-500 hover:text-theme-hover`}
-          >
-            <svg
-              fill="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-6 h-6 pt-1"
-              viewBox="0 0 24 24"
+          {!moreLike && (
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodedTwitterUrl}`}
+              rel="noopener"
+              target="_blank"
+              title="Share on Twitter"
+              className={`ml-2 text-gray-500 hover:text-theme-hover`}
             >
-              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-            </svg>
-          </a>
+              <svg
+                fill="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-6 h-6 pt-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+          )}
         </p>
       </div>
     </div>
