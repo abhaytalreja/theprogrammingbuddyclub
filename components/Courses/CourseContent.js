@@ -32,6 +32,7 @@ export default function CourseContent({ course }) {
         discount: course.discountPercent,
       })
     }
+    return true
   }
 
   useEffect(() => {
@@ -370,7 +371,7 @@ export default function CourseContent({ course }) {
             If you like to get inspired by great web projects, you should check
             out{" "}
             <a
-              onClick={trackFb}
+              onClick={() => trackFb}
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
               className="text-blue-500 underline pointer-cursor"
