@@ -22,11 +22,11 @@ export default function CourseContent({ course }) {
   const subcategory = course.primary_subcategory.title_cleaned
   const searchUrl = course.searchUrl
   const trackFb = () => {
-    if (typeof window !== "undefined") {
-      ReactPixel.track("Enroll", "UseDiscount", {
-        discount: course.discountPercent,
-      })
-    }
+    // if (typeof window !== "undefined") {
+    //   ReactPixel.track("Enroll", "UseDiscount", {
+    //     discount: course.discountPercent,
+    //   })
+    // }
   }
 
   useEffect(() => {
