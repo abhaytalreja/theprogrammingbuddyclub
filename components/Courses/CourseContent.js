@@ -363,6 +363,7 @@ export default function CourseContent({ course }) {
               href={`${siteConfig.url}/go/${course.link}`}
               title={`${course.title} ${titleSuffix} link`}
               target="_blank"
+              onClick={trackFb}
             >
               Get The Course
             </a>
@@ -371,7 +372,6 @@ export default function CourseContent({ course }) {
             If you like to get inspired by great web projects, you should check
             out{" "}
             <a
-              onClick={() => trackFb}
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
               className="text-blue-500 underline pointer-cursor"
