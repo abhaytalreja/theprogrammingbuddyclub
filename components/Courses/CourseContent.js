@@ -358,9 +358,12 @@ export default function CourseContent({ course }) {
             If you like to get inspired by great web projects, you should check
             out{" "}
             <a
-              onClick={ReactPixel.track("Enroll", "UseDiscount", {
-                discount: course.discountPercent,
-              })}
+              onClick={
+                window !== null &&
+                ReactPixel.track("Enroll", "UseDiscount", {
+                  discount: course.discountPercent,
+                })
+              }
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
               className="text-blue-500 underline pointer-cursor"
