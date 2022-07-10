@@ -359,7 +359,7 @@ export default function CourseContent({ course }) {
             out{" "}
             <a
               onClick={
-                window !== null &&
+                typeof window !== "undefined" &&
                 ReactPixel.track("Enroll", "UseDiscount", {
                   discount: course.discountPercent,
                 })
