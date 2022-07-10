@@ -11,6 +11,7 @@ import CategoryTag from "../Categories/CategoryTag"
 import siteConfig from "@/config/siteConfig"
 import getMoreLike from "lib/getMoreLike"
 import CourseList from "./CourseList"
+
 TimeAgo.addLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
