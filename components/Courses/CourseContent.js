@@ -57,6 +57,7 @@ export default function CourseContent({ course }) {
               height={540}
               src={course.images.image_480x270}
               className=""
+              alt={`${course.title} ${titleSuffix}`}
             />
           </div>
           <div className="w-full flex flex-col text-center justify-center mt-8 border border-theme p-16 rounded-lg">
