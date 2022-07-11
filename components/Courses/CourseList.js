@@ -13,6 +13,9 @@ export default function CourseList({ courses, moreLike = false }) {
                 <CoursePreview
                   index={index}
                   moreLike={moreLike}
+                  id={course.document.name.substring(
+                    course.document.name.lastIndexOf("/") + 1
+                  )}
                   key={`course-item-${course.document.name.substring(
                     course.document.name.lastIndexOf("/") + 1
                   )}-${index}`}

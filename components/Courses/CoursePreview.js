@@ -11,7 +11,7 @@ TimeAgo.addDefaultLocale(en)
 // Create formatter (English).
 const timeAgo = new TimeAgo("en-US")
 
-export default function CoursePreview({ course, index, moreLike }) {
+export default function CoursePreview({ course, index, moreLike, id }) {
   const titleSuffix =
     course.discountPercent === 100
       ? "| Free Udemy Course"
@@ -22,19 +22,22 @@ export default function CoursePreview({ course, index, moreLike }) {
   const encodedTwitterUrl =
     !moreLike &&
     encodeURIComponent(
-      `${course.title} ${titleSuffix} \n ${hashtags(
-        course.primary_category.title,
-        "#"
-      )} ${hashtags(
-        course.primary_subcategory.title,
-        "#"
-      )} \n Follow us @programminbuddy for more... \n\n #theProgrammingBuddyClub \n\n ${
+      `${course.title} ${titleSuffix} \n ${
+        course.primary_category
+          ? hashtags(course.primary_category.title, "#")
+          : ""
+      } ${
+        course.primary_subcategory
+          ? hashtags(course.primary_subcategory.title, "#")
+          : ""
+      } \n Follow us @programminbuddy for more... \n\n #theProgrammingBuddyClub \n\n ${
         siteConfig.url
       }${course.url.replace(/.*\/\/[^\/]*/, "")}`
     )
   return (
     <div
       className={`md:w-1/2 p-4 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4"}`}
+      data-id={id}
     >
       <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
         Expiry {timeAgo.format(new Date(course.campaignEnd), "round")}
@@ -79,13 +82,13 @@ export default function CoursePreview({ course, index, moreLike }) {
             {course.title}
           </Link>
         </h3>
-        {!moreLike && (
+        {!moreLike && course.primary_category && (
           <CategoryTag
             title={course.primary_category.title}
             title_cleaned={course.primary_category.title_cleaned}
           />
         )}
-        {!moreLike && (
+        {!moreLike && course.primary_subcategory && (
           <CategoryTag
             title={course.primary_subcategory.title}
             title_cleaned={course.primary_subcategory.title_cleaned}
