@@ -7,6 +7,7 @@ export default function middleware(request) {
     let url = request.nextUrl.pathname.substring(
       request.nextUrl.pathname.indexOf("/go/") + 4
     )
+
     url =
       url +
       request.nextUrl.search +
