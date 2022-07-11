@@ -35,13 +35,13 @@ export default function Footer() {
             online courses platform where you can find the widest variety of
             courses under video on demand. Udemy has a catalog of course
             categories that goes from web development or design and marketing,
-            to languages ​​or personal development.
+            to languages ​​or personal development.{" "}
             <Link
               href="/"
               title="The Programming Buddy Club | Free Udemy Courses"
             >
               <a className="text-blue-500 underline">
-                theprogrammingbuddy.club
+                Theprogrammingbuddy.club
               </a>
             </Link>{" "}
             curates all of the free and discounted courses from across the
