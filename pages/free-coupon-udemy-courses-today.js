@@ -76,10 +76,12 @@ export default function Today({ courses }) {
           const price = course.document?.fields.savingPrice
             .replace(/\s+/g, " ")
             .trim()
+            .replace(" $US", "")
             .replace(" US$", "")
             .replace(" US", "")
             .replace(",", ".")
             .replace("$", "")
+          // console.log(course.document?.fields.savingPrice, price)
           return accumulator + +price
         }, 0)
       : 0

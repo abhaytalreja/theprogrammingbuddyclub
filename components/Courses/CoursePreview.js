@@ -36,7 +36,7 @@ export default function CoursePreview({ course, index, moreLike, id }) {
     )
   return (
     <div
-      className={`md:w-1/2 p-4 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4"}`}
+      className={`md:w-1/2 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4 p-4"}`}
       data-id={id}
     >
       <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
