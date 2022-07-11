@@ -8,18 +8,23 @@ export default function Footer() {
     <footer className="text-gray-600 body-font border-t-2 border-gray-200 m-12">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 m-auto text-center md:text-left">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <div className="w-12 h-12">
-              <Image
-                src="/theprogrammingbuddyclub.png"
-                alt="The Programming Buddy Club Logo"
-                width={64}
-                height={64}
-                layout="responsive"
-              ></Image>
-            </div>
+          <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <Link
+              href="/"
+              title="The Programming Buddy Club | Free Udemy courses"
+            >
+              <a className="w-12 h-12">
+                <Image
+                  src="/theprogrammingbuddyclub.png"
+                  alt="The Programming Buddy Club Logo"
+                  width={64}
+                  height={64}
+                  layout="responsive"
+                ></Image>
+              </a>
+            </Link>
             <span className="ml-3 text-xl">The Programming Buddy Club</span>
-          </a>
+          </div>
           <p className="mt-2 text-sm text-gray-500 hover:text-theme-hover">
             One destination for all the free only learning resources
           </p>
