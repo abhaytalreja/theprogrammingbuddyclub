@@ -249,13 +249,11 @@ export default function CourseContent({ course }) {
               </ul>
             </div>
           </div>
-          {course.courseDescription && (
-            <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="leading-relaxed text-lg mb-4">
-                {course.courseDescription.replace("Description", "")}
-              </p>
-            </div>
-          )}
+          <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+            <p className="leading-relaxed text-lg mb-4">
+              {course.courseDescription.replace("Description", "")}
+            </p>
+          </div>
           <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <h3 className="leading-relaxed text-2xl font-semibold mb-4">
               Course Content:
@@ -287,12 +285,14 @@ export default function CourseContent({ course }) {
                             </div>
                             <div>{lecture.content_summary}</div>
                           </div>
-                          <div
-                            className="bg-slate-50 p-2 text-xs rounded-lg"
-                            dangerouslySetInnerHTML={{
-                              __html: lecture.description,
-                            }}
-                          ></div>
+                          {lecture.description && (
+                            <div
+                              className="bg-slate-50 p-2 text-xs rounded-lg"
+                              dangerouslySetInnerHTML={{
+                                __html: lecture.description,
+                              }}
+                            ></div>
+                          )}
                         </li>
                       ))}
                     </ul>
