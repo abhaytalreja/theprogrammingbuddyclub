@@ -36,19 +36,27 @@ export default function Footer() {
             courses under video on demand. Udemy has a catalog of course
             categories that goes from web development or design and marketing,
             to languages ​​or personal development.
-            <Link href="/">theprogrammingbuddy.club</Link> curates all of the
-            free and discounted courses from across the internet so that you can
-            start learning at the lowest possible cost. Many of our students
-            used to download udemy courses or search for them all over the
-            internet. The problem with that is piracy. We let udemy instructors
-            promote udemy courses and in return we expect our students to give a
-            genuine Feedback course review. This helps the instructors to make
-            their online course better for all their students. It also helps
-            prevents students to look for "download free udemy courses" or
-            torrents, which leads to piracy issues for the instructors.
-            Enrolling in a course at a discount or with a coupon gives you all
-            the benefits of doing a course through Udemy. You also get your
-            certificate from Udemy which you can use to find your next job.
+            <Link
+              href="/"
+              title="The Programming Buddy Club | Free Udemy Courses"
+            >
+              <a className="text-blue-500 underline">
+                theprogrammingbuddy.club
+              </a>
+            </Link>{" "}
+            curates all of the free and discounted courses from across the
+            internet so that you can start learning at the lowest possible cost.
+            Many of our students used to download udemy courses or search for
+            them all over the internet. The problem with that is piracy. We let
+            udemy instructors promote udemy courses and in return we expect our
+            students to give a genuine Feedback course review. This helps the
+            instructors to make their online course better for all their
+            students. It also helps prevents students to look for "download free
+            udemy courses" or torrents, which leads to piracy issues for the
+            instructors. Enrolling in a course at a discount or with a coupon
+            gives you all the benefits of doing a course through Udemy. You also
+            get your certificate from Udemy which you can use to find your next
+            job.
           </div>
         </div>
       </div>
