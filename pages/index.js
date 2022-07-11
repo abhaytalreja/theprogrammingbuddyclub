@@ -160,6 +160,16 @@ export default function Home({ freeCourses, discountCourses }) {
         the life of these discount coupons. Udemy coupons las for 3 - 30 days
         depending on the type of coupon the instructor is promoting it with.
       </h2>
+      <p>
+        If you like to view a list of courses and an easy way to share all our
+        daily courses, you can{" "}
+        <Link
+          href="/free-coupon-udemy-courses-today"
+          title="Latest Udemy Free & Discout coupons"
+        >
+          <a className="text-blue-500 underline">check this page</a>
+        </Link>
+      </p>
       <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
         Free Udemy Courses
       </h3>
