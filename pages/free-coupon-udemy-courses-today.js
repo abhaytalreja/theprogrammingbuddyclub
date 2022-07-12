@@ -4,7 +4,14 @@ import FireStoreParser from "firestore-parser"
 import DailyImage from "@/components/common/DailyImage"
 import * as htmlToImage from "html-to-image"
 
-const startOfDay = new Date()
+function getPreviousDay(date = new Date()) {
+  const previous = new Date(date.getTime())
+  previous.setDate(date.getDate() - 1)
+
+  return previous
+}
+
+const startOfDay = getPreviousDay()
 startOfDay.setUTCHours(0, 0, 0, 0)
 const startTimestamp = +Date.parse(startOfDay)
 

@@ -1,5 +1,4 @@
 import React from "react"
-import Rating from "../common/Rating"
 import Image from "next/image"
 import TimeAgo from "javascript-time-ago"
 import Link from "next/link"
