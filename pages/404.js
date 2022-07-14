@@ -10,7 +10,7 @@ export default function Custom404() {
         </div>
         <div className="flex flex-grow -m-4 justify-center align-middle mt-40">
           <Link href="/">
-            <a className="text-blue-500 underline">Go Home!</a>
+            <a className="text-blue-600 underline">Go Home!</a>
           </Link>
         </div>
       </div>

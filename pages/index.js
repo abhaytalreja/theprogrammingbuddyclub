@@ -168,7 +168,7 @@ export default function Home({ freeCourses, discountCourses }) {
           href="/free-coupon-udemy-courses-today"
           title="Latest Udemy Free & Discout coupons"
         >
-          <a className="text-blue-500 underline">check this page</a>
+          <a className="text-blue-600 underline">check this page</a>
         </Link>
       </p>
       <div className="my-4">

@@ -95,13 +95,13 @@ export default function CourseContent({ course }) {
               {course.discountPercent}% off
             </span>
           </div>
-          <div className="text-theme inline-flex">
+          <div className="inline-flex text-orange-600 text-lg">
             <span className="mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="icon icon-tabler icon-tabler-alarm"
-                width={24}
-                height={24}
+                width={30}
+                height={30}
                 viewBox="0 0 24 24"
                 strokeWidth="2"
                 stroke="currentColor"
@@ -152,10 +152,10 @@ export default function CourseContent({ course }) {
           <div className="flex flex-col justify-start">
             Created by:{" "}
             {course.visible_instructors?.map((instructor, instructorIndex) => (
-              <div key={instructorIndex}>
+              <div key={instructorIndex} className="mt-4">
                 <a
                   href={`https://udemy.com${instructor.url}`}
-                  className="text-blue-500 underline mr-4"
+                  className="text-blue-600 underline mr-4"
                   target="_blank"
                 >
                   {instructor.display_name}
@@ -306,7 +306,7 @@ export default function CourseContent({ course }) {
             <div className="-my-8 divide-y-2 divide-gray-100">
               <div className="py-8 flex flex-wrap md:flex-nowrap">
                 <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col w-full">
-                  <span className="font-semibold title-font text-7xl text-amber-500 mx-auto">
+                  <span className="font-semibold title-font text-7xl text-amber-600 mx-auto">
                     {Math.round(course.reviews_context.averageRating * 100) /
                       100}
                   </span>
@@ -334,7 +334,7 @@ export default function CourseContent({ course }) {
                         <span className="m-2">{rating.rating}</span>
                         <div className="w-full bg-gray-200 rounded-full m-3">
                           <div
-                            className="bg-amber-500 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
+                            className="bg-amber-600 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
                             style={getRating(rating.count)}
                           ></div>{" "}
                         </div>
@@ -349,7 +349,7 @@ export default function CourseContent({ course }) {
             </div>
           </div>
           <div className="my-4">
-            <Subscribe coursePage={true} />
+            <Subscribe coursePage="true" />
           </div>
           <div className="w-full flex flex-col justify-center mt-8 border border-theme p-8 md:p-16 rounded-lg">
             <a
@@ -367,7 +367,7 @@ export default function CourseContent({ course }) {
             <a
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
-              className="text-blue-500 underline pointer-cursor"
+              className="text-blue-600 underline pointer-cursor"
             >
               Made with Javascript
             </a>
@@ -376,7 +376,7 @@ export default function CourseContent({ course }) {
             <a
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
-              className="text-blue-500 underline pointer-cursor"
+              className="text-blue-600 underline pointer-cursor"
             >
               Made with Javascript Club website.
             </a>

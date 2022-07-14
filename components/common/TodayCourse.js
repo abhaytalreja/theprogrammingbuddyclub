@@ -34,7 +34,7 @@ export default function TodayCourse({ course, isLast }) {
               </pan>
               <a
                 href={`https://theprogrammingbuddy.club${course.document.fields.searchUrl}`}
-                className="text-blue-500 underline cursor-pointer"
+                className="text-blue-600 underline cursor-pointer"
                 target="_blank"
               >
                 https://theprogrammingbuddy.club

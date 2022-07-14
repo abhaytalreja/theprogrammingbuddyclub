@@ -2,12 +2,13 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import Social from "./Social"
+import Subscribe from "./Subscribe"
 
 export default function Footer() {
   return (
     <footer className="text-gray-600 body-font border-t-2 border-gray-200 md:m-12">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-64 flex-shrink-0 md:mx-0 m-auto text-center md:text-left">
+        <div className="w-full md:w-72 flex-shrink-0 md:mx-0 m-auto text-center md:text-left">
           <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <Link
               href="/"
@@ -25,11 +26,12 @@ export default function Footer() {
             </Link>
             <span className="ml-3 text-xl">The Programming Buddy Club</span>
           </div>
-          <p className="mt-2 text-sm text-gray-500 hover:text-theme-hover">
+          <p className="mt-2 text-sm text-gray-500 hover:text-theme-hover mb-4">
             One destination for all the free only learning resources
           </p>
+          <Subscribe isFooter="true" />
         </div>
-        <div className="flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div className="flex flex-wrap md:pl-12 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div className="w-full text-md md:text-lg">
             <div className="text-md font-bold">
               Free & Discounted Online courses
@@ -45,7 +47,7 @@ export default function Footer() {
               href="/"
               title="The Programming Buddy Club | Free Udemy Courses"
             >
-              <a className="text-blue-500 underline">
+              <a className="text-blue-600 underline">
                 Theprogrammingbuddy.club
               </a>
             </Link>{" "}

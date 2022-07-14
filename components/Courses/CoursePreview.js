@@ -94,7 +94,7 @@ export default function CoursePreview({ course, index, moreLike, id }) {
           title_cleaned={course.primary_subcategory.title_cleaned}
         />
       )}
-      <div className="text-amber-500 font-bold flex justify-start py-1 mt-2">
+      <div className="text-amber-600 font-bold flex justify-start py-1 mt-2">
         <Link href={`${course.url.replace(/.*\/\/[^\/]*/, "")}`}>
           <a className="inline-flex text-sm">
             <span>

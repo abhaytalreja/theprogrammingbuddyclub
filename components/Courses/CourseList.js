@@ -26,7 +26,7 @@ export default function CourseList({ courses, moreLike = false }) {
                   No courses in this category so far. Please try other
                   categories and check out our latest courses{" "}
                   <Link href="/">
-                    <a className="text-blue-500 underline">here</a>
+                    <a className="text-blue-600 underline">here</a>
                   </Link>
                 </div>
               )}
@@ -38,7 +38,7 @@ export default function CourseList({ courses, moreLike = false }) {
           No courses in this category so far. Please try other categories and
           check out our latest courses{" "}
           <Link href="/">
-            <a className="text-blue-500 underline">here</a>
+            <a className="text-blue-600 underline">here</a>
           </Link>
         </div>
       )}

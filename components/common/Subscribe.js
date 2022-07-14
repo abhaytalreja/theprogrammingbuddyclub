@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Subscribe({ coursePage }) {
+export default function Subscribe({ coursePage, isFooter }) {
   return (
     <div id="revue-embed">
       <form
@@ -9,20 +9,30 @@ export default function Subscribe({ coursePage }) {
         id="revue-form"
         name="revue-form"
         target="_blank"
-        className="p-4 border-2 justify-center text-center w-full md:w-2/3 mx-auto rounded-md flex flex-col"
+        className={`border-2 justify-center text-center w-full  mx-auto rounded-md flex flex-col ${
+          isFooter ? "w-full p-2" : "md:w-2/3 p-4"
+        }`}
       >
-        <h3 className="text-2xl bg-slate-50 font-semibold p-4">
-          Subscribe to our Daily Newsletter
-        </h3>
-        <p className="text-sm my-2 border-b border-gray-300 pb-2">
-          We get daily updates to our courses, new courses get added, old
-          courses are updated. If you wish to get the daily newsletter, just put
-          in your email id below and subscribe to our newsletter.
-          <span className="block">Happy Learning!</span>
-        </p>
+        {!isFooter && (
+          <h3
+            className={`bg-slate-50 font-semibold p-4 ${
+              isFooter ? "text-lg" : "text-2xl"
+            }`}
+          >
+            Subscribe to our Daily Newsletter
+          </h3>
+        )}
+        {!isFooter && (
+          <p className="text-sm my-2 border-b border-gray-300 pb-2">
+            We get daily updates to our courses, new courses get added, old
+            courses are updated. If you wish to get the daily newsletter, just
+            put in your email id below and subscribe to our newsletter.
+            <span className="block">Happy Learning!</span>
+          </p>
+        )}
         <div
           className={`flex flex-col justify-center mx-auto w-full ${
-            coursePage ? "" : "md:w-1/2"
+            coursePage || isFooter ? "" : "md:w-1/2"
           }`}
         >
           <label
@@ -42,7 +52,9 @@ export default function Subscribe({ coursePage }) {
         <div className="w-full flex justify-center mt-4">
           <input
             type="submit"
-            className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-bold text-2xl md:w-1/3 rounded-lg"
+            className={`px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-lg ${
+              isFooter ? "text-lg md:w-1/2" : "text-2xl md:w-1/3"
+            }`}
             value="Subscribe"
             name="member[subscribe]"
             id="member_submit"
