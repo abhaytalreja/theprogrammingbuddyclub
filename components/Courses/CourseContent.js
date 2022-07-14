@@ -306,7 +306,7 @@ export default function CourseContent({ course }) {
             <div className="-my-8 divide-y-2 divide-gray-100">
               <div className="py-8 flex flex-wrap md:flex-nowrap">
                 <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col w-full">
-                  <span className="font-semibold title-font text-7xl text-amber-600 mx-auto">
+                  <span className="font-semibold title-font text-7xl text-amber-700 mx-auto">
                     {Math.round(course.reviews_context.averageRating * 100) /
                       100}
                   </span>
@@ -334,7 +334,7 @@ export default function CourseContent({ course }) {
                         <span className="m-2">{rating.rating}</span>
                         <div className="w-full bg-gray-200 rounded-full m-3">
                           <div
-                            className="bg-amber-600 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
+                            className="bg-amber-700 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
                             style={getRating(rating.count)}
                           ></div>{" "}
                         </div>

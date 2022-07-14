@@ -2,11 +2,10 @@ import React from "react"
 
 export default function Subscribe({ coursePage, isFooter }) {
   return (
-    <div id="revue-embed">
+    <div>
       <form
         action="https://www.getrevue.co/profile/theprogramminbuddyclub/add_subscriber"
         method="post"
-        id="revue-form"
         name="revue-form"
         target="_blank"
         className={`border-2 justify-center text-center w-full  mx-auto rounded-md flex flex-col ${
@@ -46,7 +45,6 @@ export default function Subscribe({ coursePage, isFooter }) {
             placeholder="Your email address..."
             type="email"
             name="member[email]"
-            id="member_email"
           />
         </div>
         <div className="w-full flex justify-center mt-4">
@@ -57,7 +55,6 @@ export default function Subscribe({ coursePage, isFooter }) {
             }`}
             value="Subscribe"
             name="member[subscribe]"
-            id="member_submit"
           />
         </div>
       </form>
