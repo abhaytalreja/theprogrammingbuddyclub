@@ -95,7 +95,7 @@ export default function CourseContent({ course }) {
               {course.discountPercent}% off
             </span>
           </div>
-          <div className="inline-flex text-orange-600 text-lg">
+          <div className="inline-flex text-amber-600 text-lg font-semibold">
             <span className="mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

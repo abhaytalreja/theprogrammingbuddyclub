@@ -14,7 +14,7 @@ export default function Social() {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          className="sm:w-8 sm:h-6 w-6 h-5 pb-1"
+          className="w-8 h-6 pb-1"
           viewBox="0 0 24 24"
         >
           <path d="M9,21H6V11h3c1.654,0,3,1.346,3,3v4C12,19.654,10.654,21,9,21z M8,19h1c0.552,0,1-0.448,1-1v-4c0-0.552-0.448-1-1-1H8V19z" />
@@ -55,7 +55,7 @@ export default function Social() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="sm:w-6 sm:h-6 w-5 h-5"
+          className="w-6 h-6"
           width={24}
           height={24}
           viewBox="0 0 24 24"
@@ -80,7 +80,7 @@ export default function Social() {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          className="sm:w-6 sm:h-6 w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         >
           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -97,7 +97,7 @@ export default function Social() {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          className="sm:w-6 sm:h-6 w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         >
           <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
@@ -134,7 +134,7 @@ export default function Social() {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="0"
-          className="sm:w-6 sm:h-6 w-4 h-4"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         >
           <path
@@ -172,7 +172,7 @@ export default function Social() {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="0"
-          className="sm:w-6 sm:h-6 w-4 h-4"
+          className="w-6 h-6"
           viewBox="0 0 50 50"
         >
           <path d="M 40 0 L 10 0 C 4.484375 0 0 4.484375 0 10 L 0 40 C 0 45.515625 4.484375 50 10 50 L 40 50 C 45.515625 50 50 45.515625 50 40 L 50 10 C 50 4.484375 45.515625 0 40 0 Z M 34 40.238281 C 34 40.363281 33.945313 40.480469 33.855469 40.5625 C 33.738281 40.664063 31.011719 43 24.742188 43 C 17.230469 43 17 34.617188 17 33.664063 L 17 23.011719 L 13.429688 23 C 13.191406 23 13 22.816406 13 22.578125 L 13 18.808594 C 13 18.632813 13.109375 18.472656 13.273438 18.40625 C 13.34375 18.382813 20.058594 15.773438 20.058594 9.429688 C 20.058594 9.191406 20.253906 9 20.492188 9 L 24.578125 9 C 24.816406 9 25.007813 9.191406 25.007813 9.429688 L 25 17 L 31.5625 17 C 31.800781 17 31.992188 17.207031 31.992188 17.445313 L 31.992188 22.554688 C 31.992188 22.789063 31.800781 23 31.5625 23 L 25 23 C 25 23 25 33.253906 25 33.503906 C 25 33.75 25.226563 36.765625 28.433594 36.765625 C 31.089844 36.765625 33.320313 35.398438 33.34375 35.382813 C 33.476563 35.296875 33.640625 35.292969 33.777344 35.371094 C 33.914063 35.445313 34 35.589844 34 35.746094 Z" />
@@ -189,7 +189,7 @@ export default function Social() {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="0"
-          className="sm:w-6 sm:h-6 w-4 h-4"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         >
           <path
