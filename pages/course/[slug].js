@@ -80,7 +80,6 @@ export default function Course({ course }) {
 
 export async function getServerSideProps({ query: { slug } }) {
   const searchUrl = `/course/${slug}/`
-  console.log(slug)
 
   const firestoreQuery = {
     structuredQuery: {

@@ -160,8 +160,8 @@ export async function getServerSideProps() {
   // const response = await fetch(
   //   `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents/courses?key=${siteConfig.FIRESTORE_KEY}`
   // )
-  console.log("start", startTimestamp)
-  console.log("end", endTimestamp)
+  // console.log("start", startTimestamp)
+  // console.log("end", endTimestamp)
   const freeResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
     {

@@ -4,6 +4,7 @@ import { useState } from "react"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import Link from "next/link"
+import Subscribe from "@/components/common/Subscribe"
 
 const CategoriesList = dynamic(
   () => import("@/components/Categories/CategoriesList"),
@@ -170,6 +171,9 @@ export default function Home({ freeCourses, discountCourses }) {
           <a className="text-blue-500 underline">check this page</a>
         </Link>
       </p>
+      <div className="my-4">
+        <Subscribe />
+      </div>
       <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
         Free Udemy Courses
       </h3>

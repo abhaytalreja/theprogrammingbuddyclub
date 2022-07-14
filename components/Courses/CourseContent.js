@@ -11,6 +11,7 @@ import CategoryTag from "../Categories/CategoryTag"
 import siteConfig from "@/config/siteConfig"
 import getMoreLike from "lib/getMoreLike"
 import CourseList from "./CourseList"
+import Subscribe from "@/components/common/Subscribe"
 
 TimeAgo.addLocale(en)
 // Create formatter (English).
@@ -346,6 +347,9 @@ export default function CourseContent({ course }) {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="my-4">
+            <Subscribe coursePage={true} />
           </div>
           <div className="w-full flex flex-col justify-center mt-8 border border-theme p-8 md:p-16 rounded-lg">
             <a
