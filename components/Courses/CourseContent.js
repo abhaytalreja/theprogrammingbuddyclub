@@ -116,13 +116,19 @@ export default function CourseContent({ course }) {
                 <line x1={17} y1={4} x2="19.75" y2={6}></line>
               </svg>
             </span>
-            Price expires{" "}
-            {timeAgo.format(new Date(course.campaignEnd), "round")}{" "}
-            {course.campaign.uses_remaining && (
-              <span className="ml-1">
-                {" "}
-                or {course.campaign.uses_remaining} uses
-              </span>
+            {course.campaign ? (
+              <>
+                Price expires{" "}
+                {timeAgo.format(new Date(course.campaignEnd), "round")}{" "}
+                {course.campaign.uses_remaining && (
+                  <span className="ml-1">
+                    {" "}
+                    or {course.campaign.uses_remaining} uses
+                  </span>
+                )}
+              </>
+            ) : (
+              "New Free Udemy Course"
             )}
           </div>
           <h2 className="mt-4 text-gray-900 text-lg">

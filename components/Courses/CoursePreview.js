@@ -38,12 +38,18 @@ export default function CoursePreview({ course, index, moreLike, id }) {
       className={`md:w-1/2 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4 p-4"}`}
       data-id={id}
     >
-      <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
-        Expiry {timeAgo.format(new Date(course.campaignEnd), "round")}
-        {course.campaign.uses_remaining && (
-          <span> or {course.campaign.uses_remaining} uses</span>
-        )}
-      </div>
+      {course.campaign ? (
+        <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
+          Expiry {timeAgo.format(new Date(course.campaignEnd), "round")}
+          {course.campaign.uses_remaining && (
+            <span> or {course.campaign.uses_remaining} uses</span>
+          )}
+        </div>
+      ) : (
+        <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
+          New Free Udemy Course
+        </div>
+      )}
       <div className="block relative rounded overflow-hidden">
         <div className="relative w-full z-10">
           <div
