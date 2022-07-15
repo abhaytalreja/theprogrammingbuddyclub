@@ -88,6 +88,7 @@ export default function Today({ courses }) {
             .replace(" US", "")
             .replace(",", ".")
             .replace("$", "")
+            .replace("Free", 0)
           // console.log(course.document?.fields.savingPrice, price)
           return accumulator + +price
         }, 0)
