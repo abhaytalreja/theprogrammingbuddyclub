@@ -23,9 +23,7 @@ export default function Subscribe({ coursePage, isFooter }) {
         )}
         {!isFooter && (
           <p className="text-sm my-2 border-b border-gray-300 pb-2">
-            We get daily updates to our courses, new courses get added, old
-            courses are updated. If you wish to get the daily newsletter, just
-            put in your email id below and subscribe to our newsletter.
+            Join more than 1650 Buddies in our daily digest.
             <span className="block">Happy Learning!</span>
           </p>
         )}
