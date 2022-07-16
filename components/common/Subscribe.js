@@ -23,7 +23,8 @@ export default function Subscribe({ coursePage, isFooter }) {
         )}
         {!isFooter && (
           <p className="text-sm my-2 border-b border-gray-300 pb-2">
-            Join more than 1650 Buddies in our daily digest.
+            Join more than <span className="font-semibold">1650</span> Buddies
+            in our daily digest.
             <span className="block">Happy Learning!</span>
           </p>
         )}
