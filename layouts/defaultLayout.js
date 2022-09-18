@@ -54,6 +54,11 @@ export default function DefaultLayout({ children }) {
           `,
           }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2306119198554594"
+          crossorigin="anonymous"
+        ></script>
       </Head>
       {router.pathname === "/" && (
         <CustomHead

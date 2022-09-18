@@ -35,7 +35,7 @@ export default function Subscribe({ coursePage, isFooter }) {
         >
           <label
             className="text-left font-semibold mr-10 py-2"
-            for="member_email"
+            htmlFor="member_email"
           >
             Email address
           </label>
