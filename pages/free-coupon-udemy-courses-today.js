@@ -85,6 +85,7 @@ export default function Today({ courses }) {
             .trim()
             .replace(" $US", "")
             .replace(" US$", "")
+            .replace("US$", "")
             .replace(" US", "")
             .replace(",", ".")
             .replace("$", "")
@@ -94,6 +95,7 @@ export default function Today({ courses }) {
         }, 0)
       : 0
 
+  console.log("savings ----", savings)
   const downloadImage = () => {
     var node = document.getElementById("today-image")
 
