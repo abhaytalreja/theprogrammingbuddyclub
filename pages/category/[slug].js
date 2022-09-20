@@ -11,7 +11,7 @@ const courseFields = [
   { fieldPath: "listPrice" },
   { fieldPath: "discountPrice" },
   { fieldPath: "updateDate" },
-  { fieldPath: "images.image_480x270" },
+  { fieldPath: "images.image_240x135" },
   { fieldPath: "campaign.end_time" },
   { fieldPath: "campaign.uses_remaining" },
   { fieldPath: "campaignEnd" },
