@@ -29,13 +29,17 @@ export default function CoursePreview({ course, index, moreLike, id }) {
         course.primary_subcategory
           ? hashtags(course.primary_subcategory.title, "#")
           : ""
+      } ${
+        course.child_category ? hashtags(course.child_category.title, "#") : ""
       } \n Follow us @programminbuddy for more... \n\n #theProgrammingBuddyClub \n\n ${
         siteConfig.url
       }${course.url.replace(/.*\/\/[^\/]*/, "")}`
     )
   return (
     <div
-      className={`md:w-1/2 w-full ${moreLike ? " lg:w-1/3" : " lg:w-1/4 p-4"}`}
+      className={`md:w-1/2 w-full ${
+        moreLike ? " lg:w-1/3 p-2" : " lg:w-1/4 p-4"
+      }`}
       data-id={id}
     >
       {course.campaign ? (
@@ -98,6 +102,12 @@ export default function CoursePreview({ course, index, moreLike, id }) {
         <CategoryTag
           title={course.primary_subcategory.title}
           title_cleaned={course.primary_subcategory.title_cleaned}
+        />
+      )}
+      {!moreLike && course.child_category && (
+        <CategoryTag
+          title={course.child_category.title}
+          title_cleaned={course.child_category.title_cleaned}
         />
       )}
       <div className="text-amber-700 font-bold flex justify-start py-1 mt-2">

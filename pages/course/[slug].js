@@ -25,6 +25,8 @@ const courseFields = [
   { fieldPath: "primary_category.title" },
   { fieldPath: "primary_subcategory.title_cleaned" },
   { fieldPath: "primary_subcategory.title" },
+  { fieldPath: "child_category.title_cleaned" },
+  { fieldPath: "child_category.title" },
   { fieldPath: "slider_menu.data.num_reviews" },
   { fieldPath: "description" },
   { fieldPath: "slider_menu.data.badge_family" },
@@ -48,10 +50,10 @@ export default function Course({ course }) {
       {course && course.title ? (
         <>
           <CustomHead
-            title={`${course.title} | Free Udemy Course ${course.primary_category.title_cleaned}, ${course.primary_subcategory.title_cleaned}`}
+            title={`${course.title} | Free Udemy Course ${course.primary_category.title_cleaned}, ${course.primary_subcategory.title_cleaned}, ${course.child_category.title}`}
             imageUrl={course.images.image_480x270}
             keywords={keyword_extractor.extract(
-              `${course.description} ${course.primary_category.title} ${course.primary_subcategory.title}`,
+              `${course.description} ${course.primary_category.title} ${course.primary_subcategory.title} ${course.child_category.title}`,
               {
                 language: "english",
                 remove_digits: true,

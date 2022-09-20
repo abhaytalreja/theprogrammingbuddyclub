@@ -21,10 +21,11 @@ export default function CourseContent({ course }) {
   const [moreLike, setMoreLike] = useState(null)
   const primary = course.primary_category.title_cleaned
   const subcategory = course.primary_subcategory.title_cleaned
+  const child = course.child_category.title_cleaned
   const searchUrl = course.searchUrl
 
   useEffect(() => {
-    getMoreLike(primary, subcategory, searchUrl).then((courses) => {
+    getMoreLike(primary, subcategory, child, searchUrl).then((courses) => {
       setMoreLike(courses)
     })
   }, [])
@@ -79,6 +80,12 @@ export default function CourseContent({ course }) {
               title={course.primary_subcategory.title}
               title_cleaned={course.primary_subcategory.title_cleaned}
             />
+            {course.child_category && (
+              <CategoryTag
+                title={course.child_category.title}
+                title_cleaned={course.child_category.title_cleaned}
+              />
+            )}
           </div>
           <div className="text-gray-600 text-2xl font-bold my-4">
             {course.discountPrice}{" "}
