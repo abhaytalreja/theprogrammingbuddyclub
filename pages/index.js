@@ -57,7 +57,7 @@ const firestoreQuery = {
         op: "AND",
       },
     },
-    limit: 8,
+    limit: 12,
   },
 }
 
