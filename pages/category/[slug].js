@@ -61,7 +61,7 @@ const firestoreQuery = {
 
 export default function Category({ courses, slug }) {
   const [showMoreCourses, setShowMoreCourses] = useState(
-    courses.length > 0 && courses.length % 8 == 0
+    courses.length > 0 && courses.length % 12 == 0
   )
   const [totalCourses, setTotalCourses] = useState(courses)
 
