@@ -98,7 +98,7 @@ const discountQuery = {
 const nowNumber = +Date.parse(new Date())
 export default function Home({ freeCourses, discountCourses }) {
   const [showMoreFreeCourses, setShowMoreFreeCourses] = useState(
-    freeCourses.length > 0 && freeCourses.length % 8 == 0
+    freeCourses.length > 0 && freeCourses.length % 12 == 0
   )
   const [showMoreDiscountCourses, setShowMoreDiscountCourses] = useState(
     discountCourses.length > 0 && discountCourses.length % 8 == 0
