@@ -14,6 +14,11 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
           rel="stylesheet"
         ></link>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2306119198554594"
+          crossorigin="anonymous"
+        ></script>
       </Head>
       <body className="text-slate-700 antialiased font-varela container mx-auto">
         <Main />
