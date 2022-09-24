@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import Link from "next/link"
 import Subscribe from "@/components/common/Subscribe"
+import Tools from "@/components/common/Tools"
 
 const CategoriesList = dynamic(
   () => import("@/components/Categories/CategoriesList"),
@@ -204,6 +205,7 @@ export default function Home({ freeCourses, discountCourses }) {
           </button>
         </div>
       )}
+      <Tools />
       <Suspense fallback={`Loading...`}>
         <CategoriesList />
       </Suspense>

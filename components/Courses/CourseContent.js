@@ -12,6 +12,7 @@ import siteConfig from "@/config/siteConfig"
 import getMoreLike from "lib/getMoreLike"
 import CourseList from "./CourseList"
 import Subscribe from "@/components/common/Subscribe"
+import Tools from "../common/Tools"
 
 TimeAgo.addLocale(en)
 // Create formatter (English).
@@ -21,7 +22,7 @@ export default function CourseContent({ course }) {
   const [moreLike, setMoreLike] = useState(null)
   const primary = course.primary_category.title_cleaned
   const subcategory = course.primary_subcategory.title_cleaned
-  const child = course.child_category.title_cleaned
+  const child = course?.child_category?.title_cleaned
   const searchUrl = course.searchUrl
 
   useEffect(() => {
@@ -370,6 +371,7 @@ export default function CourseContent({ course }) {
               href={`${siteConfig.url}/go/${course.link}`}
               title={`${course.title} ${titleSuffix} link`}
               target="_blank"
+              rel="nofollow"
             >
               Get The Course
             </a>
@@ -394,6 +396,7 @@ export default function CourseContent({ course }) {
               Made with Javascript Club website.
             </a>
           </div>
+          <Tools />
           {moreLike && moreLike.length > 0 && (
             <>
               <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">

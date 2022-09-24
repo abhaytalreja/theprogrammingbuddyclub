@@ -50,10 +50,10 @@ export default function Course({ course }) {
       {course && course.title ? (
         <>
           <CustomHead
-            title={`${course.title} | Free Udemy Course ${course.primary_category.title_cleaned}, ${course.primary_subcategory.title_cleaned}, ${course.child_category.title}`}
+            title={`${course.title} | Free Udemy Course ${course.primary_category.title_cleaned}, ${course.primary_subcategory.title_cleaned}, ${course?.child_category?.title}`}
             imageUrl={course.images.image_480x270}
             keywords={keyword_extractor.extract(
-              `${course.description} ${course.primary_category.title} ${course.primary_subcategory.title} ${course.child_category.title}`,
+              `${course.description} ${course.primary_category.title} ${course.primary_subcategory.title} ${course?.child_category?.title}`,
               {
                 language: "english",
                 remove_digits: true,

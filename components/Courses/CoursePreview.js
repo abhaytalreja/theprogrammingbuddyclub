@@ -104,7 +104,7 @@ export default function CoursePreview({ course, index, moreLike, id }) {
           title_cleaned={course.primary_subcategory.title_cleaned}
         />
       )}
-      {!moreLike && course.child_category && (
+      {!moreLike && course?.child_category?.title && (
         <CategoryTag
           title={course.child_category.title}
           title_cleaned={course.child_category.title_cleaned}
