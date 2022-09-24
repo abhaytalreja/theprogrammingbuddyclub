@@ -1,7 +1,12 @@
 export default {
-  header: "The Programming Buddy Club",
+  title: "The Programming Buddy Club | Youtube of Udemy",
   NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || "",
   url: "https://theprogrammingbuddy.club",
+  imageUrl: "/the-programming-buddy-club-free-online-courses.png",
+  description:
+    "Welcome to theprogrammingbuddy.club, where you will find ALL free & discounted courses based on the popularity from sources like Udemy in an easy and quick way. Udemy is the biggest online courses platform where you can find the widest variety of courses under video on demand.",
+  keywords:
+    "Udemy Payroll, Udemy Learn Javascript, Udemy Podcast, Udemy Cryptocurrency Free Course, and Udemy Cbt, udemy, udemy courses, udemy coupon, udemy stock, udemylogin, udemy free courses, udemy for business, udemy coupon code, udemy python, udemy discount, udemy sale, udemy discount code, udemy promo code, udemy certification, udemy subscription, wgu udemy, udemy free, discudemy, udemy app, udemy free online courses, udemy online courses, udemy cognizant, udemy sign in, udemy academy, cognizant udemy, udemy excel, udemy free courses with certificate, wipro udemy, udemy coupon code 2021, udemy python course, udemy aws, udemy react, udemy power bi, stephane maarek, jose portilla, udemy excel course, udemy code, udemy web development, udemy free coupon, udemy classes, tim buchalka, udemy coupon 2021, udemy angular, best udemy courses, udemy machine learning, udemy graphic design, colt steele udemy, power bi udemy, udemy photoshop, udemy pricing",
   rssFilePath: "./public/rss",
   tools: [
     {

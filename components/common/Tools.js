@@ -3,8 +3,6 @@ import ToolItem from "./ToolItem"
 import siteConfig from "@/config/siteConfig"
 
 export default function Tools() {
-  // const toolsArray = Object.values(siteConfig.tools)
-  console.log(siteConfig.tools)
   return (
     <section className="text-gray-600 body-font mt-16">
       <div className="container px-5 py-8 mx-auto">

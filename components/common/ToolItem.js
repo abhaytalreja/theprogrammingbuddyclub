@@ -2,7 +2,6 @@ import React from "react"
 import Link from "next/link"
 
 export default function ToolItem({ title, description, url, key }) {
-  console.log(title, description, url)
   return (
     <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
       <div className="flex items-center mb-3">

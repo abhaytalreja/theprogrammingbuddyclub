@@ -10,9 +10,7 @@ export default function CustomHead({
 }) {
   return (
     <Head>
-      <title>
-        {title} | {description}
-      </title>
+      <title>{title}</title>
       <meta name="title" content={`${title}`}></meta>
       <meta name="keywords" content={keywords}></meta>
       <meta name="description" content={description}></meta>
