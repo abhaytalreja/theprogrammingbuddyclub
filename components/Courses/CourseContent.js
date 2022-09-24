@@ -396,7 +396,6 @@ export default function CourseContent({ course }) {
               Made with Javascript Club website.
             </a>
           </div>
-          <Tools />
           {moreLike && moreLike.length > 0 && (
             <>
               <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
@@ -405,6 +404,7 @@ export default function CourseContent({ course }) {
               <CourseList courses={moreLike} moreLike={true} />
             </>
           )}
+          <Tools />
         </div>
       </div>
     </section>
