@@ -67,6 +67,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <div>
+        <Link href="/privacy">
+          <a className="m-2 hover:font-bold cursor-pointer">Privacy</a>
+        </Link>
+      </div>
       <div className="bg-gray-100">
         <div className="container mx-auto py-8 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-gray-800 text-lg text-center sm:text-left border-gray-100 border-b md:border-0 pb-2">
