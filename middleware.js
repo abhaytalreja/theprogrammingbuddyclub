@@ -15,7 +15,10 @@ export default function middleware(request) {
     // "&LSNPUBID=i*IXi5qsT7c&ranMID=47901&ranEAID=i*IXi5qsT7c&ranSiteID=i.IXi5qsT7c-7tQalvfFKOIEKn49OkAFyA"
     // + "&utm_source=theProgrammingBuddy&utm_medium=landing_page&utm_campaign=theProgrammingBuddyClub&ref=theProgrammingBuddy.club"
 
-    const encodedUrl = encodeURIComponent(url + request.nextUrl.search)
+    const encodedUrl = encodeURIComponent(url + request.nextUrl.search).replace(
+      "https%3A%2F",
+      "https%3A%2F%2F"
+    )
 
     console.log("Final URL - " + url + request.nextUrl.search)
     console.log("Redirect URL - " + affiliateUrl + encodedUrl)
