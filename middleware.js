@@ -17,7 +17,8 @@ export default function middleware(request) {
 
     const encodedUrl = encodeURIComponent(url + request.nextUrl.search)
 
-    console.log("Redirect URL" + affiliateUrl + encodedUrl)
+    console.log("Final URL - " + url + request.nextUrl.search)
+    console.log("Redirect URL - " + affiliateUrl + encodedUrl)
 
     return NextResponse.redirect(affiliateUrl + encodedUrl)
   }
