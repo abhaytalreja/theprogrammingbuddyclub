@@ -168,7 +168,7 @@ export default function CourseContent({ course }) {
             {course.visible_instructors?.map((instructor, instructorIndex) => (
               <div key={instructorIndex} className="mt-4">
                 <a
-                  href={`https://udemy.com${instructor.url}`}
+                  href={`https://udemy.com${instructor.url}?&LSNPUBID=i*IXi5qsT7c&ranMID=47901&ranEAID=i*IXi5qsT7c&ranSiteID=i.IXi5qsT7c-7tQalvfFKOIEKn49OkAFyA`}
                   className="text-blue-600 underline mr-4"
                   target="_blank"
                 >
