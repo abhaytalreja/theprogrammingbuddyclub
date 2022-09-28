@@ -13,6 +13,7 @@ import getMoreLike from "lib/getMoreLike"
 import CourseList from "./CourseList"
 import Subscribe from "@/components/common/Subscribe"
 import Tools from "../common/Tools"
+import LinkedIn from "../Ads/LinkedIn"
 
 TimeAgo.addLocale(en)
 // Create formatter (English).
@@ -52,12 +53,12 @@ export default function CourseContent({ course }) {
   }
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-12 mx-auto flex flex-col">
-        <div className="lg:w-4/6 mx-auto">
-          <div className="rounded-lg overflow-hidden flex justify-center">
+      <div className="container px-5 py-12 flex flex-col">
+        <div className="">
+          <div className="rounded-lg overflow-hidden flex justify-center w-full">
             <Image
-              width={960}
-              height={540}
+              width={1440}
+              height={810}
               src={course.images.image_480x270}
               className=""
               alt={`${course.title} ${titleSuffix}`}
@@ -88,114 +89,126 @@ export default function CourseContent({ course }) {
               />
             )}
           </div>
-          <div className="text-gray-600 text-2xl font-bold my-4">
-            {course.discountPrice}{" "}
-            <span className="font-light line-through ml-1">
-              {course.listPrice}
-            </span>
-            <span
-              className={`font-semibold text-lg ${
-                course.discountPercent == 100
-                  ? "text-red-600"
-                  : "text-green-700"
-              } ml-2`}
-            >
-              {course.discountPercent}% off
-            </span>
-          </div>
-          <div className="inline-flex text-amber-600 text-lg font-semibold">
-            <span className="mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-alarm"
-                width={30}
-                height={30}
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <circle cx={12} cy={13} r={7}></circle>
-                <polyline points="12 10 12 13 14 13"></polyline>
-                <line x1={7} y1={4} x2="4.25" y2={6}></line>
-                <line x1={17} y1={4} x2="19.75" y2={6}></line>
-              </svg>
-            </span>
-            {course.campaign ? (
-              <>
-                Price expires{" "}
-                {timeAgo.format(new Date(course.campaignEnd), "round")}{" "}
-                {course.campaign.uses_remaining && (
-                  <span className="ml-1">
-                    {" "}
-                    or {course.campaign.uses_remaining} uses
-                  </span>
-                )}
-              </>
-            ) : (
-              "New Free Udemy Course"
-            )}
-          </div>
-          <h2 className="mt-4 text-gray-900 text-lg">
-            {course.description} {titleSuffix}
-          </h2>
-          {course.slider_menu.data.badge_family && (
-            <span className="inline-flex items-center justify-center px-4 py-2 my-2 text-lg font-bold leading-none text-white bg-theme rounded-full capitalize">
-              {course.slider_menu.data.badge_family}
-            </span>
-          )}
-          <div className="flex justify-start py-2">
-            <span className="mr-2">
-              {Math.round(course.avg_rating_recent * 100) / 100}
-            </span>
-            <div className="pt-1">
-              <Rating rating={course.avg_rating_recent} />{" "}
-            </div>
-            <div className="text-gray-600 text-xs font-normal ml-2 pt-1">
-              {"("}
-              {course.slider_menu.data.num_reviews} ratings
-              {")"}
-            </div>
-            <div className="text-gray-600 text-xs font-normal ml-2 pt-1">
-              {course.num_subscribers} students
-            </div>
-          </div>
-          <div className="flex flex-col justify-start">
-            Created by:{" "}
-            {course.visible_instructors?.map((instructor, instructorIndex) => (
-              <div key={instructorIndex} className="mt-4">
-                <a
-                  href={`https://udemy.com${instructor.url}?&LSNPUBID=i*IXi5qsT7c&ranMID=47901&ranEAID=i*IXi5qsT7c&ranSiteID=i.IXi5qsT7c-7tQalvfFKOIEKn49OkAFyA`}
-                  className="text-blue-600 underline mr-4"
-                  target="_blank"
+          <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-2/3 p-4">
+              <div className="text-gray-600 text-2xl font-bold my-4">
+                {course.discountPrice}{" "}
+                <span className="font-light line-through ml-1">
+                  {course.listPrice}
+                </span>
+                <span
+                  className={`font-semibold text-lg ${
+                    course.discountPercent == 100
+                      ? "text-red-600"
+                      : "text-green-700"
+                  } ml-2`}
                 >
-                  {instructor.display_name}
-                </a>
+                  {course.discountPercent}% off
+                </span>
               </div>
-            ))}
+              <div className="inline-flex text-amber-600 text-lg font-semibold">
+                <span className="mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-alarm"
+                    width={30}
+                    height={30}
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx={12} cy={13} r={7}></circle>
+                    <polyline points="12 10 12 13 14 13"></polyline>
+                    <line x1={7} y1={4} x2="4.25" y2={6}></line>
+                    <line x1={17} y1={4} x2="19.75" y2={6}></line>
+                  </svg>
+                </span>
+                {course.campaign ? (
+                  <>
+                    Price expires{" "}
+                    {timeAgo.format(new Date(course.campaignEnd), "round")}{" "}
+                    {course.campaign.uses_remaining && (
+                      <span className="ml-1">
+                        {" "}
+                        or {course.campaign.uses_remaining} uses
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  "New Free Udemy Course"
+                )}
+              </div>
+              <h2 className="mt-4 text-gray-900 text-lg">
+                {course.description} {titleSuffix}
+              </h2>
+              {course.slider_menu.data.badge_family && (
+                <span className="inline-flex items-center justify-center px-4 py-2 my-2 text-lg font-bold leading-none text-white bg-theme rounded-full capitalize">
+                  {course.slider_menu.data.badge_family}
+                </span>
+              )}
+              <div className="flex justify-start py-2">
+                <span className="mr-2">
+                  {Math.round(course.avg_rating_recent * 100) / 100}
+                </span>
+                <div className="pt-1">
+                  <Rating rating={course.avg_rating_recent} />{" "}
+                </div>
+                <div className="text-gray-600 text-xs font-normal ml-2 pt-1">
+                  {"("}
+                  {course.slider_menu.data.num_reviews} ratings
+                  {")"}
+                </div>
+                <div className="text-gray-600 text-xs font-normal ml-2 pt-1">
+                  {course.num_subscribers} students
+                </div>
+              </div>
+              <div className="flex flex-col justify-start">
+                Created by:{" "}
+                {course.visible_instructors?.map(
+                  (instructor, instructorIndex) => (
+                    <div key={instructorIndex} className="mt-4">
+                      <a
+                        href={`https://udemy.com${instructor.url}?&LSNPUBID=i*IXi5qsT7c&ranMID=47901&ranEAID=i*IXi5qsT7c&ranSiteID=i.IXi5qsT7c-7tQalvfFKOIEKn49OkAFyA`}
+                        className="text-blue-600 underline mr-4"
+                        target="_blank"
+                      >
+                        {instructor.display_name}
+                      </a>
+                    </div>
+                  )
+                )}
+              </div>
+              <div className="flex flex-col justify-start my-4 font-mono">
+                <span className="py-2">{course.lastUpdated}</span>
+                <span className="py-2">
+                  Course Language {course.courseLocale}
+                </span>
+                <span className="py-2">Course Caption {course.caption}</span>
+                <span className="py-2">
+                  Course Length{" "}
+                  {course.curriculum_context.data.estimated_content_length_text}{" "}
+                  to be exact{" "}
+                  {
+                    course.curriculum_context.data
+                      .estimated_content_length_in_seconds
+                  }{" "}
+                  seconds!
+                </span>
+                <span className="py-2">
+                  Number of Lectures{" "}
+                  {course.curriculum_context.data.num_of_published_lectures}
+                </span>
+              </div>
+            </div>
+            <div className="w-full md:w-1/3 p-4">
+              <LinkedIn />
+            </div>
           </div>
-          <div className="flex flex-col justify-start my-4 font-mono">
-            <span className="py-2">{course.lastUpdated}</span>
-            <span className="py-2">Course Language {course.courseLocale}</span>
-            <span className="py-2">Course Caption {course.caption}</span>
-            <span className="py-2">
-              Course Length{" "}
-              {course.curriculum_context.data.estimated_content_length_text} to
-              be exact{" "}
-              {
-                course.curriculum_context.data
-                  .estimated_content_length_in_seconds
-              }{" "}
-              seconds!
-            </span>
-            <span className="py-2">
-              Number of Lectures{" "}
-              {course.curriculum_context.data.num_of_published_lectures}
-            </span>
-          </div>
+
           <div className="w-full border p-8 flex justify-center my-8">
             <div className="text-left text-xl">
               <span className="font-semibold">This course includes:</span>
@@ -254,7 +267,7 @@ export default function CourseContent({ course }) {
           <div className="w-full border p-8 flex justify-center my-8">
             <div className="text-left text-xl">
               <span className="font-semibold">What will you learn:</span>
-              <ul>
+              <ul className="flex flex-col">
                 {course.whatYouLearn.map((learn, learnIndex) => (
                   <li className="my-4 inline-flex" key={`learn-${learnIndex}`}>
                     <Checks />

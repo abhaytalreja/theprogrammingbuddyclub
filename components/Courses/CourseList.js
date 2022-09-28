@@ -1,6 +1,7 @@
 import React from "react"
 import CoursePreview from "./CoursePreview"
 import Link from "next/link"
+import LearderBoardAd from "../Ads/LearderBoardAd"
 
 export default function CourseList({ courses, moreLike = false }) {
   return (
