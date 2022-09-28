@@ -15,7 +15,7 @@ export default function middleware(request) {
     // "&LSNPUBID=i*IXi5qsT7c&ranMID=47901&ranEAID=i*IXi5qsT7c&ranSiteID=i.IXi5qsT7c-7tQalvfFKOIEKn49OkAFyA"
     // + "&utm_source=theProgrammingBuddy&utm_medium=landing_page&utm_campaign=theProgrammingBuddyClub&ref=theProgrammingBuddy.club"
 
-    const encodedUrl = encodeURI(url)
+    const encodedUrl = encodeURIComponent(url)
 
     console.log("Redirect URL" + affiliateUrl + encodedUrl)
 
