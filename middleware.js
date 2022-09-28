@@ -6,7 +6,7 @@ export default function middleware(request) {
   console.log("Middleware called")
   if (request.nextUrl.pathname.startsWith("/go/")) {
     let url = request.nextUrl.pathname.substring(
-      request.nextUrl.pathname.indexOf("/go/") + 3
+      request.nextUrl.pathname.indexOf("/go/") + 4
     )
 
     const affiliateUrl =
