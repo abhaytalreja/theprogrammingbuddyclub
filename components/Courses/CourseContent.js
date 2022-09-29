@@ -51,6 +51,9 @@ export default function CourseContent({ course }) {
       count != 0 ? (100 * count) / course.slider_menu.data.num_reviews : 0
     return { width: `${percent}%` }
   }
+  const getInstructorUrl = (instructor) => {
+    return encodeURIComponent(`https://udemy.com${instructor.url}`)
+  }
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-12 flex flex-col">
@@ -172,9 +175,12 @@ export default function CourseContent({ course }) {
                   (instructor, instructorIndex) => (
                     <div key={instructorIndex} className="mt-4">
                       <a
-                        href={`https://udemy.com${instructor.url}?&LSNPUBID=i*IXi5qsT7c&ranMID=47901&ranEAID=i*IXi5qsT7c&ranSiteID=i.IXi5qsT7c-7tQalvfFKOIEKn49OkAFyA`}
+                        href={`https://click.linksynergy.com/deeplink?id=i*IXi5qsT7c&mid=47901&murl=${getInstructorUrl(
+                          instructor
+                        )}`}
                         className="text-blue-600 underline mr-4"
                         target="_blank"
+                        rel="nofollow noopener"
                       >
                         {instructor.display_name}
                       </a>
@@ -384,7 +390,7 @@ export default function CourseContent({ course }) {
               href={`${siteConfig.url}/go/${course.link}`}
               title={`${course.title} ${titleSuffix} link`}
               target="_blank"
-              rel="nofollow"
+              rel="nofollow noopener"
             >
               Get The Course
             </a>
