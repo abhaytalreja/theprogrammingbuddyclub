@@ -7,6 +7,7 @@ import Link from "next/link"
 import Subscribe from "@/components/common/Subscribe"
 import Tools from "@/components/common/Tools"
 import LearderBoardAd from "@/components/Ads/LearderBoardAd"
+import UdemyFaq from "@/components/common/UdemyFaq"
 
 const CategoriesList = dynamic(
   () => import("@/components/Categories/CategoriesList"),
@@ -210,6 +211,7 @@ export default function Home({ freeCourses, discountCourses }) {
       <Tools />
       <Suspense fallback={`Loading...`}>
         <CategoriesList />
+        <UdemyFaq />
       </Suspense>
     </div>
   )

@@ -5,6 +5,7 @@ import CustomHead from "@/components/common/CustomHead"
 import Head from "next/head"
 import ErrorPage from "../404"
 import FireStoreParser from "firestore-parser"
+import UdemyFaq from "@/components/common/UdemyFaq"
 
 const keyword_extractor = require("keyword-extractor")
 
@@ -67,6 +68,7 @@ export default function Course({ course }) {
           <div id="content">
             <CourseContent course={course} />
           </div>
+          <UdemyFaq />
         </>
       ) : (
         <>

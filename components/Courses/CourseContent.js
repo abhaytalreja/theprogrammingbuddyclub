@@ -14,6 +14,7 @@ import CourseList from "./CourseList"
 import Subscribe from "@/components/common/Subscribe"
 import Tools from "../common/Tools"
 import LinkedIn from "../Ads/LinkedIn"
+import SocialJoinGroups from "../common/SocialJoinGroups"
 
 TimeAgo.addLocale(en)
 // Create formatter (English).
@@ -383,6 +384,7 @@ export default function CourseContent({ course }) {
           </div>
           <div className="my-4">
             <Subscribe coursePage="true" />
+            <SocialJoinGroups />
           </div>
           <div className="w-full flex flex-col justify-center mt-8 border border-theme p-8 md:p-16 rounded-lg">
             <a
