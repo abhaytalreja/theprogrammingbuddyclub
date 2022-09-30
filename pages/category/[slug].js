@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import FireStoreParser from "firestore-parser"
 import CourseList from "@/components/Courses/CourseList"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 const courseFields = [
   { fieldPath: "discountPercent" },
@@ -22,6 +23,7 @@ const courseFields = [
   { fieldPath: "primary_subcategory.title" },
   { fieldPath: "child_category.title_cleaned" },
   { fieldPath: "child_category.title" },
+  { fieldPath: "categories" },
 ]
 
 const firestoreQuery = {
@@ -36,27 +38,9 @@ const firestoreQuery = {
           {
             fieldFilter: {
               field: {
-                fieldPath: "primary_category.title_cleaned",
+                fieldPath: "categories",
               },
-              op: "EQUAL",
-              value: {
-                stringValue: "",
-              },
-            },
-            fieldFilter: {
-              field: {
-                fieldPath: "primary_subcategory.title_cleaned",
-              },
-              op: "EQUAL",
-              value: {
-                stringValue: "",
-              },
-            },
-            fieldFilter: {
-              field: {
-                fieldPath: "child_category.title_cleaned",
-              },
-              op: "EQUAL",
+              op: "ARRAY_CONTAINS",
               value: {
                 stringValue: "",
               },
@@ -71,15 +55,19 @@ const firestoreQuery = {
 }
 
 export default function Category({ courses, slug }) {
+  const router = useRouter()
+
   const [showMoreCourses, setShowMoreCourses] = useState(
     courses.length > 0 && courses.length % 12 == 0
   )
-  const [totalCourses, setTotalCourses] = useState(courses)
+  const [totalCourses, setTotalCourses] = useState([...courses])
+
+  useEffect(() => {
+    setTotalCourses(courses)
+  }, [router.asPath])
 
   const loadMoreFreeCourses = async () => {
     firestoreQuery.structuredQuery.offset = totalCourses.length
-    firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
-      slug
     firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
       slug
 
@@ -126,8 +114,6 @@ export default function Category({ courses, slug }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
-    slug
   firestoreQuery.structuredQuery.where.compositeFilter.filters[0].fieldFilter.value.stringValue =
     slug
 
