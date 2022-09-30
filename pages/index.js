@@ -70,7 +70,7 @@ const discountQuery = {
   structuredQuery: {
     from: [{ collectionId: "courses" }],
     orderBy: [
-      { field: { fieldPath: "discountPercent" }, direction: "DESCENDING" },
+      // { field: { fieldPath: "isPaid" }, direction: "DESCENDING" },
       { field: { fieldPath: "updateDate" }, direction: "DESCENDING" },
     ],
     select: {
@@ -82,11 +82,11 @@ const discountQuery = {
           {
             fieldFilter: {
               field: {
-                fieldPath: "discountPercent",
+                fieldPath: "isPaid",
               },
-              op: "LESS_THAN",
+              op: "EQUAL",
               value: {
-                integerValue: 100,
+                booleanValue: true,
               },
             },
           },
@@ -245,6 +245,8 @@ export async function getServerSideProps() {
     }
   )
   const discountResponseJson = await discountResponse.json()
+  console.log(discountResponseJson)
+  console.log(discountResponse)
   const discountCourses = await FireStoreParser(discountResponseJson)
   return {
     props: {
