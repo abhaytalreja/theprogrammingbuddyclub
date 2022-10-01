@@ -26,6 +26,25 @@ export default function CourseContent({ course }) {
   const subcategory = course.primary_subcategory.title_cleaned
   const child = course?.child_category?.title_cleaned
   const searchUrl = course.searchUrl
+  const sectionsToCollapse = course.curriculum_context?.data?.sections?.length
+  const [collapse, setCollapse] = useState({
+    whatYouLearn: true,
+    description: true,
+  })
+  const [sectionCollapse, setSectionCollapse] = useState(
+    new Array(sectionsToCollapse).fill(true)
+  )
+
+  const handleCollapseChange = (e) => {
+    const { name } = e.target
+    const collapseItem = collapse.whatYouLearn
+    setCollapse({ ...collapse, [name]: !collapseItem })
+  }
+  const handleSectionCollapse = (index) => {
+    const updatedSectionCollapse = [...sectionCollapse]
+    updatedSectionCollapse[index] = !updatedSectionCollapse[index]
+    setSectionCollapse([...updatedSectionCollapse])
+  }
 
   useEffect(() => {
     getMoreLike(primary, subcategory, child, searchUrl).then((courses) => {
@@ -61,10 +80,10 @@ export default function CourseContent({ course }) {
         <div className="">
           <div className="rounded-lg overflow-hidden flex justify-center w-full">
             <Image
-              width={1440}
-              height={810}
+              width={950}
+              height={540}
               src={course.images.image_480x270}
-              className=""
+              className="mx-auto w-full"
               alt={`${course.title} ${titleSuffix}`}
             />
           </div>
@@ -273,8 +292,18 @@ export default function CourseContent({ course }) {
           </div>
           <div className="w-full border p-8 flex justify-center my-8">
             <div className="text-left text-xl">
-              <span className="font-semibold">What will you learn:</span>
-              <ul className="flex flex-col">
+              <button
+                className="font-semibold w-full text-center"
+                name="whatYouLearn"
+                onClick={handleCollapseChange}
+              >
+                What will you learn:
+              </button>
+              <ul
+                className={`flex flex-col ease-linear transition-all duration-150 ${
+                  collapse.whatYouLearn ? "hidden" : ""
+                }`}
+              >
                 {course.whatYouLearn.map((learn, learnIndex) => (
                   <li className="my-4 inline-flex" key={`learn-${learnIndex}`}>
                     <Checks />
@@ -293,6 +322,10 @@ export default function CourseContent({ course }) {
             <h3 className="leading-relaxed text-2xl font-semibold mb-4">
               Course Content:
             </h3>
+            <p className="text-sm italic my-2">
+              Sections are minimized for better readability, click the section
+              title to view the course content
+            </p>
             <div>
               {course.curriculum_context.data.sections?.map(
                 (section, sectionId) => (
@@ -301,13 +334,23 @@ export default function CourseContent({ course }) {
                     className="flex rounded-lg h-full bg-gray-100 p-2 md:p-8 flex-col mb-8"
                   >
                     <span className="font-semibold flex justify-between bg-slate-50 p-2 md:p-4 rounded-lg mb-4">
-                      <div>{section.title}</div>
+                      <button
+                        className="w-full text-left"
+                        onClick={() => handleSectionCollapse(sectionId)}
+                        data-value={sectionCollapse[sectionId]}
+                      >
+                        {section.title}
+                      </button>
                       <div>
                         {section.lecture_count} Lectures |{" "}
                         {section.content_length_text}
                       </div>
                     </span>
-                    <ul className="bg-gray-200 rounded-lg">
+                    <ul
+                      className={`bg-gray-200 rounded-lg ${
+                        sectionCollapse[sectionId] ? "hidden" : ""
+                      }`}
+                    >
                       {section.items.map((lecture, lectureIndex) => (
                         <li
                           className="flex flex-col md:py-4 py-2 md:px-8 px-2"
