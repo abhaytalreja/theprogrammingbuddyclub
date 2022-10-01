@@ -43,6 +43,17 @@ const firestoreQuery = {
           {
             fieldFilter: {
               field: {
+                fieldPath: "isFree",
+              },
+              op: "EQUAL",
+              value: {
+                booleanValue: true,
+              },
+            },
+          },
+          {
+            fieldFilter: {
+              field: {
                 fieldPath: "updateDate",
               },
               op: "LESS_THAN",
@@ -189,7 +200,7 @@ export async function getServerSideProps() {
   )
   const freeResponseJson = await freeResponse.json()
   const freeCourses = await FireStoreParser(freeResponseJson)
-  //   console.log("freeCourses", freeCourses)
+  // console.log("freeCourses", freeCourses)
 
   return {
     props: {

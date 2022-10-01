@@ -50,11 +50,11 @@ const firestoreQuery = {
           {
             fieldFilter: {
               field: {
-                fieldPath: "discountPercent",
+                fieldPath: "isFree",
               },
               op: "EQUAL",
               value: {
-                integerValue: 100,
+                booleanValue: true,
               },
             },
           },
@@ -233,6 +233,7 @@ export async function getServerSideProps() {
   )
   const freeResponseJson = await freeResponse.json()
   const freeCourses = await FireStoreParser(freeResponseJson)
+  // console.log(freeResponseJson, freeCourses)
 
   const discountResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
