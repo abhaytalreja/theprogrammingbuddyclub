@@ -3,6 +3,8 @@ import FireStoreParser from "firestore-parser"
 import CourseList from "@/components/Courses/CourseList"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import CustomHead from "@/components/common/CustomHead"
+import siteConfig from "@/config/siteConfig"
 
 const courseFields = [
   { fieldPath: "discountPercent" },
@@ -89,27 +91,38 @@ export default function Category({ courses, slug }) {
     setShowMoreCourses(newFetchedCourses.length % 8 == 0)
   }
   return (
-    <div>
-      <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
-        <Link href={`/category/${slug}`}>
-          <a>
-            Free Udemy Courses for{" "}
-            <span className="uppercase">{slug.replace("-", " ")}</span>
-          </a>
-        </Link>
-      </h3>
-      <CourseList courses={totalCourses} />
-      {showMoreCourses && (
-        <div className="w-full flex justify-center mt-8">
-          <button
-            className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl w-2/3"
-            onClick={() => loadMoreFreeCourses()}
-          >
-            Load More
-          </button>
-        </div>
-      )}
-    </div>
+    <>
+      <CustomHead
+        title={`${slug
+          .replace("-", " ")
+          .toUpperCase()} | Free Udemy Coursses and Discount Coupons`}
+        imageUrl={siteConfig.imageUrl}
+        keywords={siteConfig.keywords}
+        description={siteConfig.description}
+        website={siteConfig.url + "/free-coupon-udemy-courses-today"}
+      />
+      <div>
+        <h3 className="text-2xl bg-slate-50 font-semibold p-4 mt-8">
+          <Link href={`/category/${slug}`}>
+            <a>
+              Free Udemy Courses for{" "}
+              <span className="uppercase">{slug.replace("-", " ")}</span>
+            </a>
+          </Link>
+        </h3>
+        <CourseList courses={totalCourses} />
+        {showMoreCourses && (
+          <div className="w-full flex justify-center mt-8">
+            <button
+              className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl w-2/3"
+              onClick={() => loadMoreFreeCourses()}
+            >
+              Load More
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   )
 }
 
