@@ -15,7 +15,6 @@ import Subscribe from "@/components/common/Subscribe"
 import Tools from "../common/Tools"
 import LinkedIn from "../Ads/LinkedIn"
 import SocialJoinGroups from "../common/SocialJoinGroups"
-import SkillShareAdd from "../Ads/SkillshareAd"
 
 TimeAgo.addLocale(en)
 // Create formatter (English).
@@ -88,9 +87,9 @@ export default function CourseContent({ course }) {
               alt={`${course.title} ${titleSuffix}`}
             />
           </div>
-          <div className="rounded-lg overflow-hidden flex justify-center w-full">
+          {/* <div className="rounded-lg overflow-hidden flex justify-center w-full">
             <SkillShareAdd />
-          </div>
+          </div> */}
           <div className="w-full flex flex-col text-center justify-center mt-8 border border-theme p-16 rounded-lg">
             <span>Scroll Down to get the course</span>
             <span className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl text-center rounded-lg opacity-40">

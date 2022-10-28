@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import siteConfig from "@/config/siteConfig"
 import CustomHead from "@/components/common/CustomHead"
 import Script from "next/script"
+import SearchGoogle from "@/components/common/SearchGoogle"
 
 export default function DefaultLayout({ children }) {
   const router = useRouter()
@@ -65,6 +66,7 @@ export default function DefaultLayout({ children }) {
         />
       )}
       <Header />
+      <SearchGoogle />
       {children}
       <Footer />
     </div>
