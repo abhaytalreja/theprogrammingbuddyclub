@@ -164,6 +164,8 @@ export default function CourseContent({ course }) {
                       </span>
                     )}
                   </>
+                ) : course.isPaid ? (
+                  "New Udemy Course"
                 ) : (
                   "New Free Udemy Course"
                 )}

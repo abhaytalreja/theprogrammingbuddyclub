@@ -35,6 +35,8 @@ const courseFields = [
   { fieldPath: "primary_subcategory.title" },
   { fieldPath: "child_category.title_cleaned" },
   { fieldPath: "child_category.title" },
+  { fieldPath: "isFree" },
+  { fieldPath: "isPaid" },
 ]
 
 const firestoreQuery = {
