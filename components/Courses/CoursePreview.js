@@ -51,7 +51,7 @@ export default function CoursePreview({ course, index, moreLike, id }) {
         </div>
       ) : (
         <div className="text-xs p-1 font-semibold bg-slate-50 text-gray-700 mb-1">
-          New Free Udemy Course
+          {course.isPaid ? "New Udemy Course" : "New Free Udemy Course"}
         </div>
       )}
       <div className="block relative rounded overflow-hidden">
