@@ -60,6 +60,25 @@ export default function UdemyFaq() {
         <Link href="/">theprogrammingbuddy.club</Link> work with these
         instructors to get their courses available to our buddies.
       </p>
+      <h3 className="text-xl font-bold my-4">Is Udemy safe to use?</h3>
+      <p>
+        Yes, payments on Udemy are safe. It is no different than paying for
+        other services on an application or website and inputting your payment
+        information before receiving your goods. Just be sure to keep your
+        account secure, do not share your udemy accounts.
+      </p>
+      <h3 className="text-xl font-bold my-4">
+        Can Udemy courses get you a job?
+      </h3>
+      <p>
+        Earning a skill is more valuable than earning a job these days. Skills
+        are your most valuable asset. They can help you qualify for jobs you
+        want and get promoted to more advanced positions within your
+        organization. Unfortunately, it is difficult for many people to balance
+        taking courses with work and family obligations. We have had many
+        students, who have taken just Udemy courses, started a job as well as
+        started freelancing with the skills they have learned.
+      </p>
     </div>
   )
 }
