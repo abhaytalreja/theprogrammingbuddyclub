@@ -13,7 +13,7 @@ import getMoreLike from "lib/getMoreLike"
 import CourseList from "./CourseList"
 import Subscribe from "@/components/common/Subscribe"
 import Tools from "../common/Tools"
-import LinkedIn from "../Ads/LinkedIn"
+// import LinkedIn from "../Ads/LinkedIn"
 import SocialJoinGroups from "../common/SocialJoinGroups"
 
 TimeAgo.addLocale(en)
@@ -235,9 +235,7 @@ export default function CourseContent({ course }) {
                 </span>
               </div>
             </div>
-            <div className="w-full md:w-1/3 p-4">
-              <LinkedIn />
-            </div>
+            <div className="w-full md:w-1/3 p-4">{/* <LinkedIn /> */}</div>
           </div>
 
           <div className="w-full border p-8 flex justify-center my-8">

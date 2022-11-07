@@ -6,7 +6,7 @@ import { Suspense } from "react"
 import Link from "next/link"
 import Subscribe from "@/components/common/Subscribe"
 import Tools from "@/components/common/Tools"
-import LearderBoardAd from "@/components/Ads/LearderBoardAd"
+// import LearderBoardAd from "@/components/Ads/LearderBoardAd"
 import UdemyFaq from "@/components/common/UdemyFaq"
 
 const CategoriesList = dynamic(
@@ -184,7 +184,7 @@ export default function Home({ freeCourses, discountCourses }) {
       <h3 className="text-2xl bg-slate-50 font-semibold p-4 my-8">
         Free Udemy Courses
       </h3>
-      <LearderBoardAd />
+      {/* <LearderBoardAd /> */}
       <CourseList courses={totalFreeCourses} />
       {showMoreFreeCourses && (
         <div className="w-full flex justify-center mt-8">
