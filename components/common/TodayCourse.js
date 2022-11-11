@@ -27,11 +27,12 @@ export default function TodayCourse({ course, isLast }) {
           <div className="flex-grow pl-4">
             <p className="leading-relaxed flex flex-col">
               <span>{course.document.fields.title}</span>
-              <pan>
+              {/* <pan>
                 {course.document.fields.discountPercent === 100
                   ? "Free Online Course - Enroll Now"
                   : "Discount Online Coupon - Save Now"}
-              </pan>
+              </pan> */}
+              <br />
               <a
                 href={`https://theprogrammingbuddy.club${course.document.fields.searchUrl}`}
                 className="text-blue-600 underline cursor-pointer"
