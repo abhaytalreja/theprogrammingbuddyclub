@@ -10,6 +10,7 @@ import SearchGoogle from "@/components/common/SearchGoogle"
 
 export default function DefaultLayout({ children }) {
   const router = useRouter()
+
   return (
     <div>
       <Head>

@@ -22,6 +22,7 @@ const timeAgo = new TimeAgo("en-US")
 
 export default function CourseContent({ course }) {
   const [moreLike, setMoreLike] = useState(null)
+  const [adBlockDisabled, setAdBlockDisabled] = useState(false)
   const primary = course.primary_category.title_cleaned
   const subcategory = course.primary_subcategory.title_cleaned
   const child = course?.child_category?.title_cleaned
@@ -74,6 +75,23 @@ export default function CourseContent({ course }) {
   const getInstructorUrl = (instructor) => {
     return encodeURIComponent(`https://udemy.com${instructor.url}`)
   }
+
+  let test = new Request(
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+    // "https://static.ads-twitter.com/uwt.js",
+    { method: "HEAD", mode: "no-cors" }
+  )
+
+  // (B) FIRE THE REQEST
+  fetch(test)
+    .then((res) => {
+      setAdBlockDisabled(true)
+    })
+    .catch((err) => {
+      alert(
+        "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
+      )
+    })
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-12 flex flex-col">
@@ -433,15 +451,25 @@ export default function CourseContent({ course }) {
             <SocialJoinGroups />
           </div>
           <div className="w-full flex flex-col justify-center mt-8 border border-theme p-8 md:p-16 rounded-lg">
-            <a
-              className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl text-center rounded-lg"
-              href={`${siteConfig.url}/go/${course.link}`}
-              title={`${course.title} ${titleSuffix} link`}
-              target="_blank"
-              rel="nofollow noopener"
-            >
-              Get The Course
-            </a>
+            {adBlockDisabled ? (
+              <a
+                className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl text-center rounded-lg"
+                href={`${siteConfig.url}/go/${course.link}`}
+                title={`${course.title} ${titleSuffix} link`}
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                Get The Course
+              </a>
+            ) : (
+              <div className="px-4 py-2 text-theme font-bold text-2xl text-center rounded-lg">
+                Please disable the ad-blocker and refresh the page to view the
+                Coupon code.
+                <br />
+                We need to have ad revenue to keep the website going. We
+                appreciate your support!
+              </div>
+            )}
           </div>
           <div className="my-4">
             If you like to get inspired by great web projects, you should check
