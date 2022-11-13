@@ -76,22 +76,26 @@ export default function CourseContent({ course }) {
     return encodeURIComponent(`https://udemy.com${instructor.url}`)
   }
 
-  let test = new Request(
-    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-    // "https://static.ads-twitter.com/uwt.js",
-    { method: "HEAD", mode: "no-cors" }
-  )
+  const isSSR = typeof window === "undefined"
+  if (!isSSR) {
+    let test = new Request(
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      // "https://static.ads-twitter.com/uwt.js",
+      { method: "HEAD", mode: "no-cors" }
+    )
 
-  // (B) FIRE THE REQEST
-  fetch(test)
-    .then((res) => {
-      setAdBlockDisabled(true)
-    })
-    .catch((err) => {
-      alert(
-        "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
-      )
-    })
+    // (B) FIRE THE REQEST
+    fetch(test)
+      .then((res) => {
+        setAdBlockDisabled(true)
+      })
+      .catch((err) => {
+        alert(
+          "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
+        )
+      })
+  }
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-12 flex flex-col">
