@@ -22,7 +22,7 @@ const timeAgo = new TimeAgo("en-US")
 
 export default function CourseContent({ course }) {
   const [moreLike, setMoreLike] = useState(null)
-  const [adBlockDisabled, setAdBlockDisabled] = useState(false)
+  const [adBlockDisabled, setAdBlockDisabled] = useState(true)
   const primary = course.primary_category.title_cleaned
   const subcategory = course.primary_subcategory.title_cleaned
   const child = course?.child_category?.title_cleaned
@@ -76,25 +76,25 @@ export default function CourseContent({ course }) {
     return encodeURIComponent(`https://udemy.com${instructor.url}`)
   }
 
-  const isSSR = typeof window === "undefined"
-  if (!isSSR) {
-    let test = new Request(
-      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-      // "https://static.ads-twitter.com/uwt.js",
-      { method: "HEAD", mode: "no-cors" }
-    )
+  // const isSSR = typeof window === "undefined"
+  // if (!isSSR) {
+  //   let test = new Request(
+  //     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  //     // "https://static.ads-twitter.com/uwt.js",
+  //     { method: "HEAD", mode: "no-cors" }
+  //   )
 
-    // (B) FIRE THE REQEST
-    fetch(test)
-      .then((res) => {
-        setAdBlockDisabled(true)
-      })
-      .catch((err) => {
-        alert(
-          "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
-        )
-      })
-  }
+  //   // (B) FIRE THE REQEST
+  //   fetch(test)
+  //     .then((res) => {
+  //       setAdBlockDisabled(true)
+  //     })
+  //     .catch((err) => {
+  //       alert(
+  //         "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
+  //       )
+  //     })
+  // }
 
   return (
     <section className="text-gray-600 body-font">

@@ -155,27 +155,27 @@ export default function Home({ freeCourses, discountCourses }) {
     }
   }
 
-  let adBlockDisabled = false
+  // let adBlockDisabled = false
 
-  const isSSR = typeof window === "undefined"
-  if (!isSSR) {
-    let test = new Request(
-      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-      // "https://static.ads-twitter.com/uwt.js",
-      { method: "HEAD", mode: "no-cors" }
-    )
+  // const isSSR = typeof window === "undefined"
+  // if (!isSSR) {
+  //   let test = new Request(
+  //     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  //     // "https://static.ads-twitter.com/uwt.js",
+  //     { method: "HEAD", mode: "no-cors" }
+  //   )
 
-    // (B) FIRE THE REQEST
-    fetch(test)
-      .then((res) => {
-        adBlockDisabled = true
-      })
-      .catch((err) => {
-        alert(
-          "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
-        )
-      })
-  }
+  //   // (B) FIRE THE REQEST
+  //   fetch(test)
+  //     .then((res) => {
+  //       adBlockDisabled = true
+  //     })
+  //     .catch((err) => {
+  //       alert(
+  //         "The website will not function well if you are using Adblock, Please disable it and refresh the page. If that didn't work you may change the browser"
+  //       )
+  //     })
+  // }
   return (
     <div className="px-4 md:px-12 mt-8">
       <h1 className="flex flex-row md:inline-flex md:justify-between w-full text-xl font-bold py-2">
