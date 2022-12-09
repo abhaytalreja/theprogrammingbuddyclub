@@ -82,6 +82,9 @@ export default function CoursePreview({ course, index, moreLike, id }) {
             />
           </a>
         </Link>
+        <div className="text-xs p-1 text-gray-700 mb-1 text-right">
+          Added {timeAgo.format(new Date(course.updateDate * 1000), "round")}
+        </div>
       </div>
       <h3
         className={`text-gray-900 title-font font-medium mb-2 mt-2 ${
