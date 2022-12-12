@@ -108,6 +108,7 @@ export default function Today({ courses }) {
             .replace("Gratuito", 0)
             .replace("Gratuit", 0)
             .replace("Kostenlos", 0)
+            .replace("Ücretsiz", 0)
           console.log(course.document?.fields.savingPrice, price)
           return accumulator + +price
         }, 0)
