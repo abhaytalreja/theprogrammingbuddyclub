@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react"
-import Image from "next/image"
-import Rating from "../common/Rating"
-import TimeAgo from "javascript-time-ago"
-import en from "javascript-time-ago/locale/en"
-import Bullet from "@/components/common/Icons/Bullet"
-import Checks from "@/components/common/Icons/Checks"
-import Play from "../common/Icons/Play"
-import Quiz from "../common/Icons/Quiz"
-import CategoryTag from "../Categories/CategoryTag"
-import siteConfig from "@/config/siteConfig"
-import getMoreLike from "lib/getMoreLike"
-import CourseList from "./CourseList"
-import Subscribe from "@/components/common/Subscribe"
-import Tools from "../common/Tools"
+import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Rating from '../common/Rating'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+import Bullet from '@/components/common/Icons/Bullet'
+import Checks from '@/components/common/Icons/Checks'
+import Play from '../common/Icons/Play'
+import Quiz from '../common/Icons/Quiz'
+import CategoryTag from '../Categories/CategoryTag'
+import siteConfig from '@/config/siteConfig'
+import getMoreLike from 'lib/getMoreLike'
+import CourseList from './CourseList'
+import Tools from '../common/Tools'
 // import LinkedIn from "../Ads/LinkedIn"
-import SocialJoinGroups from "../common/SocialJoinGroups"
+import SocialJoinGroups from '../common/SocialJoinGroups'
 
 TimeAgo.addLocale(en)
 // Create formatter (English).
-const timeAgo = new TimeAgo("en-US")
+const timeAgo = new TimeAgo('en-US')
 
 export default function CourseContent({ course }) {
   const [moreLike, setMoreLike] = useState(null)
@@ -55,13 +54,13 @@ export default function CourseContent({ course }) {
 
   const titleSuffix =
     course.discountPercent === 100
-      ? "| Free Udemy Course"
-      : " | Discount Coupon for Udemy Course"
+      ? '| Free Udemy Course'
+      : ' | Discount Coupon for Udemy Course'
   const displayIcon = (type) => {
     switch (type) {
-      case "lecture":
+      case 'lecture':
         return <Play />
-      case "quiz":
+      case 'quiz':
         return <Quiz />
       default:
         return <Play />
@@ -140,15 +139,15 @@ export default function CourseContent({ course }) {
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-2/3 p-4">
               <div className="text-gray-600 text-2xl font-bold my-4">
-                {course.discountPrice}{" "}
+                {course.discountPrice}{' '}
                 <span className="font-light line-through ml-1">
                   {course.listPrice}
                 </span>
                 <span
                   className={`font-semibold text-lg ${
                     course.discountPercent == 100
-                      ? "text-red-600"
-                      : "text-green-700"
+                      ? 'text-red-600'
+                      : 'text-green-700'
                   } ml-2`}
                 >
                   {course.discountPercent}% off
@@ -177,19 +176,19 @@ export default function CourseContent({ course }) {
                 </span>
                 {course.campaign ? (
                   <>
-                    Price expires{" "}
-                    {timeAgo.format(new Date(course.campaignEnd), "round")}{" "}
+                    Price expires{' '}
+                    {timeAgo.format(new Date(course.campaignEnd), 'round')}{' '}
                     {course.campaign.uses_remaining && (
                       <span className="ml-1">
-                        {" "}
+                        {' '}
                         or {course.campaign.uses_remaining} uses
                       </span>
                     )}
                   </>
                 ) : course.isPaid ? (
-                  "New Udemy Course"
+                  'New Udemy Course'
                 ) : (
-                  "New Free Udemy Course"
+                  'New Free Udemy Course'
                 )}
               </div>
               <h2 className="mt-4 text-gray-900 text-lg">
@@ -205,19 +204,19 @@ export default function CourseContent({ course }) {
                   {Math.round(course.avg_rating_recent * 100) / 100}
                 </span>
                 <div className="pt-1">
-                  <Rating rating={course.avg_rating_recent} />{" "}
+                  <Rating rating={course.avg_rating_recent} />{' '}
                 </div>
                 <div className="text-gray-600 text-xs font-normal ml-2 pt-1">
-                  {"("}
+                  {'('}
                   {course.slider_menu.data.num_reviews} ratings
-                  {")"}
+                  {')'}
                 </div>
                 <div className="text-gray-600 text-xs font-normal ml-2 pt-1">
                   {course.num_subscribers} students
                 </div>
               </div>
               <div className="flex flex-col justify-start">
-                Created by:{" "}
+                Created by:{' '}
                 {course.visible_instructors?.map(
                   (instructor, instructorIndex) => (
                     <div key={instructorIndex} className="mt-4">
@@ -242,17 +241,17 @@ export default function CourseContent({ course }) {
                 </span>
                 <span className="py-2">Course Caption {course.caption}</span>
                 <span className="py-2">
-                  Course Length{" "}
-                  {course.curriculum_context.data.estimated_content_length_text}{" "}
-                  to be exact{" "}
+                  Course Length{' '}
+                  {course.curriculum_context.data.estimated_content_length_text}{' '}
+                  to be exact{' '}
                   {
                     course.curriculum_context.data
                       .estimated_content_length_in_seconds
-                  }{" "}
+                  }{' '}
                   seconds!
                 </span>
                 <span className="py-2">
-                  Number of Lectures{" "}
+                  Number of Lectures{' '}
                   {course.curriculum_context.data.num_of_published_lectures}
                 </span>
               </div>
@@ -326,7 +325,7 @@ export default function CourseContent({ course }) {
               </button>
               <ul
                 className={`flex flex-col ease-linear transition-all duration-150 ${
-                  collapse.whatYouLearn ? "hidden" : ""
+                  collapse.whatYouLearn ? 'hidden' : ''
                 }`}
               >
                 {course.whatYouLearn.map((learn, learnIndex) => (
@@ -340,7 +339,7 @@ export default function CourseContent({ course }) {
           </div>
           <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <p className="leading-relaxed text-lg mb-4">
-              {course.courseDescription.replace("Description", "")}
+              {course.courseDescription.replace('Description', '')}
             </p>
           </div>
           <div className="mt-4 pt-4 sm:mt-0 text-center sm:text-left">
@@ -367,13 +366,13 @@ export default function CourseContent({ course }) {
                         {section.title}
                       </button>
                       <div>
-                        {section.lecture_count} Lectures |{" "}
+                        {section.lecture_count} Lectures |{' '}
                         {section.content_length_text}
                       </div>
                     </span>
                     <ul
                       className={`bg-gray-200 rounded-lg ${
-                        sectionCollapse[sectionId] ? "hidden" : ""
+                        sectionCollapse[sectionId] ? 'hidden' : ''
                       }`}
                     >
                       {section.items.map((lecture, lectureIndex) => (
@@ -417,12 +416,12 @@ export default function CourseContent({ course }) {
                       <Rating
                         rating={course.avg_rating_recent}
                         customClassName="w-8"
-                      />{" "}
+                      />{' '}
                     </div>
                     <div className="text-gray-600 text-lg font-normal pt-2">
-                      {"("}
+                      {'('}
                       {course.slider_menu.data.num_reviews} course ratings
-                      {")"}
+                      {')'}
                     </div>
                   </div>
                 </div>
@@ -438,7 +437,7 @@ export default function CourseContent({ course }) {
                           <div
                             className="bg-amber-700 text-xs font-medium text-blue-100 text-center p-2 leading-none rounded-l-full"
                             style={getRating(rating.count)}
-                          ></div>{" "}
+                          ></div>{' '}
                         </div>
                         <span className="m-2">
                           {rating.count}/{course.slider_menu.data.num_reviews}
@@ -451,7 +450,6 @@ export default function CourseContent({ course }) {
             </div>
           </div>
           <div className="my-4">
-            <Subscribe coursePage="true" />
             <SocialJoinGroups />
           </div>
           <div className="w-full flex flex-col justify-center mt-8 border border-theme p-8 md:p-16 rounded-lg">
@@ -477,7 +475,7 @@ export default function CourseContent({ course }) {
           </div>
           <div className="my-4">
             If you like to get inspired by great web projects, you should check
-            out{" "}
+            out{' '}
             <a
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
@@ -486,7 +484,7 @@ export default function CourseContent({ course }) {
               Made with Javascript
             </a>
             . If you have a project that you wish to share with the world, feel
-            free to submit your project on{" "}
+            free to submit your project on{' '}
             <a
               href="https://www.madewithjavascript.club"
               title="Made with Javascript Club"
