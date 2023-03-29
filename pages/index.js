@@ -1,48 +1,56 @@
-import CourseList from "@/components/Courses/CourseList"
-import FireStoreParser from "firestore-parser"
-import { useState } from "react"
-import dynamic from "next/dynamic"
-import { Suspense } from "react"
-import Link from "next/link"
-import Subscribe from "@/components/common/Subscribe"
-import Tools from "@/components/common/Tools"
+import CourseList from '@/components/Courses/CourseList'
+import FireStoreParser from 'firestore-parser'
+import { useState } from 'react'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+import Link from 'next/link'
+import Subscribe from '@/components/common/Subscribe'
+import Tools from '@/components/common/Tools'
 // import LearderBoardAd from "@/components/Ads/LearderBoardAd"
-import UdemyFaq from "@/components/common/UdemyFaq"
+import UdemyFaq from '@/components/common/UdemyFaq'
+import Image from 'next/image'
+
+const udemyLinks = [
+  { country: 'IN', src: '/ad/udemy/udemy_india_728_90.png', link: '' },
+  { country: 'ID', src: '/ad/udemy/udemy_indonesia_728_90.png' },
+  { country: 'SG', src: '/ad/udemy/udemy_singapore_728_90.png' },
+  { country: 'GB', src: '/ad/udemy/udemy_uk_728_90.png' },
+]
 
 const CategoriesList = dynamic(
-  () => import("@/components/Categories/CategoriesList"),
+  () => import('@/components/Categories/CategoriesList'),
   {
     suspense: true,
   }
 )
 
 const courseFields = [
-  { fieldPath: "discountPercent" },
-  { fieldPath: "title" },
-  { fieldPath: "avg_rating_recent" },
-  { fieldPath: "num_subscribers" },
-  { fieldPath: "listPrice" },
-  { fieldPath: "discountPrice" },
-  { fieldPath: "updateDate" },
-  { fieldPath: "images.image_240x135" },
-  { fieldPath: "campaign.end_time" },
-  { fieldPath: "campaign.uses_remaining" },
-  { fieldPath: "campaignEnd" },
-  { fieldPath: "url" },
-  { fieldPath: "primary_category.title_cleaned" },
-  { fieldPath: "primary_category.title" },
-  { fieldPath: "primary_subcategory.title_cleaned" },
-  { fieldPath: "primary_subcategory.title" },
-  { fieldPath: "child_category.title_cleaned" },
-  { fieldPath: "child_category.title" },
-  { fieldPath: "isFree" },
-  { fieldPath: "isPaid" },
+  { fieldPath: 'discountPercent' },
+  { fieldPath: 'title' },
+  { fieldPath: 'avg_rating_recent' },
+  { fieldPath: 'num_subscribers' },
+  { fieldPath: 'listPrice' },
+  { fieldPath: 'discountPrice' },
+  { fieldPath: 'updateDate' },
+  { fieldPath: 'images.image_240x135' },
+  { fieldPath: 'campaign.end_time' },
+  { fieldPath: 'campaign.uses_remaining' },
+  { fieldPath: 'campaignEnd' },
+  { fieldPath: 'url' },
+  { fieldPath: 'primary_category.title_cleaned' },
+  { fieldPath: 'primary_category.title' },
+  { fieldPath: 'primary_subcategory.title_cleaned' },
+  { fieldPath: 'primary_subcategory.title' },
+  { fieldPath: 'child_category.title_cleaned' },
+  { fieldPath: 'child_category.title' },
+  { fieldPath: 'isFree' },
+  { fieldPath: 'isPaid' },
 ]
 
 const firestoreQuery = {
   structuredQuery: {
-    from: [{ collectionId: "courses" }],
-    orderBy: [{ field: { fieldPath: "updateDate" }, direction: "DESCENDING" }],
+    from: [{ collectionId: 'courses' }],
+    orderBy: [{ field: { fieldPath: 'updateDate' }, direction: 'DESCENDING' }],
     select: {
       fields: courseFields,
     },
@@ -52,16 +60,16 @@ const firestoreQuery = {
           {
             fieldFilter: {
               field: {
-                fieldPath: "isFree",
+                fieldPath: 'isFree',
               },
-              op: "EQUAL",
+              op: 'EQUAL',
               value: {
                 booleanValue: true,
               },
             },
           },
         ],
-        op: "AND",
+        op: 'AND',
       },
     },
     limit: 8,
@@ -70,10 +78,10 @@ const firestoreQuery = {
 
 const discountQuery = {
   structuredQuery: {
-    from: [{ collectionId: "courses" }],
+    from: [{ collectionId: 'courses' }],
     orderBy: [
       // { field: { fieldPath: "isPaid" }, direction: "DESCENDING" },
-      { field: { fieldPath: "updateDate" }, direction: "DESCENDING" },
+      { field: { fieldPath: 'updateDate' }, direction: 'DESCENDING' },
     ],
     select: {
       fields: courseFields,
@@ -84,16 +92,16 @@ const discountQuery = {
           {
             fieldFilter: {
               field: {
-                fieldPath: "isPaid",
+                fieldPath: 'isPaid',
               },
-              op: "EQUAL",
+              op: 'EQUAL',
               value: {
                 booleanValue: true,
               },
             },
           },
         ],
-        op: "AND",
+        op: 'AND',
       },
     },
     limit: 8,
@@ -102,6 +110,26 @@ const discountQuery = {
 
 const nowNumber = +Date.parse(new Date())
 export default function Home({ freeCourses, discountCourses }) {
+  const [udemyAdSource, setUdemyAdSource] = useState(
+    '/ad/udemy/udemy_uk_728_90.png'
+  )
+  const geoJson = fetch(
+    'https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location',
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      const linkFound = udemyLinks.find((li) => li.country === data.country)
+      setUdemyAdSource(
+        linkFound ? linkFound.src : '/ad/udemy/udemy_uk_728_90.png'
+      )
+    })
+
   const [showMoreFreeCourses, setShowMoreFreeCourses] = useState(
     freeCourses.length > 0 && freeCourses.length % 8 == 0
   )
@@ -114,15 +142,15 @@ export default function Home({ freeCourses, discountCourses }) {
     useState(discountCourses)
 
   const loadMoreFreeCourses = async (type) => {
-    if (type === "free") {
+    if (type === 'free') {
       firestoreQuery.structuredQuery.offset = totalFreeCourses.length
 
       const freeResponse = await fetch(
         `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ ...firestoreQuery }),
         }
@@ -133,15 +161,15 @@ export default function Home({ freeCourses, discountCourses }) {
       const newFetchedCourses = [...totalFreeCourses, ...fetchedCourses]
       setTotalFreeCourses(newFetchedCourses)
       setShowMoreFreeCourses(newFetchedCourses.length % 8 == 0)
-    } else if (type === "discount") {
+    } else if (type === 'discount') {
       discountQuery.structuredQuery.offset = totalDiscountCourses.length
 
       const discountResponse = await fetch(
         `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ ...discountQuery }),
         }
@@ -182,7 +210,7 @@ export default function Home({ freeCourses, discountCourses }) {
         The Programming Buddy Club
       </h1>
       <h2 className="">
-        Learning Should be free. We at{" "}
+        Learning Should be free. We at{' '}
         <Link href="/">theprogrammingbuddy.club</Link> make sure that you get
         the latest and the best Udemy courses for Free or a at a discount. We do
         keep track of regular updates on these coupons so you don't need to.
@@ -190,9 +218,9 @@ export default function Home({ freeCourses, discountCourses }) {
         the life of these discount coupons. Udemy coupons las for 3 - 30 days
         depending on the type of coupon the instructor is promoting it with.
       </h2>
-      <p>
+      <p className="mb-8">
         If you like to view a list of courses and an easy way to share all our
-        daily courses, you can{" "}
+        daily courses, you can{' '}
         <Link
           href="/free-coupon-udemy-courses-today"
           title="Latest Udemy Free & Discout coupons"
@@ -200,9 +228,22 @@ export default function Home({ freeCourses, discountCourses }) {
           <a className="text-blue-600 underline">check this page</a>
         </Link>
       </p>
-      <div className="my-4">
+      {/* <div className="my-4">
         <Subscribe />
-      </div>
+      </div> */}
+      <a
+        href="https://click.linksynergy.com/fs-bin/click?id=i*IXi5qsT7c&offerid=1074530.221&subid=0&type=4"
+        target="_blank"
+        className="mt-8"
+      >
+        <Image
+          alt="Udemy UK"
+          layout="responsive"
+          width={728}
+          height={90}
+          src={udemyAdSource}
+        />
+      </a>
       <h3 className="text-2xl bg-slate-50 font-semibold p-4 my-8">
         Free Udemy Courses
       </h3>
@@ -212,7 +253,7 @@ export default function Home({ freeCourses, discountCourses }) {
         <div className="w-full flex justify-center mt-8">
           <button
             className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl w-2/3"
-            onClick={() => loadMoreFreeCourses("free")}
+            onClick={() => loadMoreFreeCourses('free')}
           >
             Load More
           </button>
@@ -226,7 +267,7 @@ export default function Home({ freeCourses, discountCourses }) {
         <div className="w-full flex justify-center mt-8">
           <button
             className="px-4 py-2 bg-theme hover:bg-theme text-white font-bold text-2xl w-2/3"
-            onClick={() => loadMoreFreeCourses("discount")}
+            onClick={() => loadMoreFreeCourses('discount')}
           >
             Load More
           </button>
@@ -248,9 +289,9 @@ export async function getServerSideProps() {
   const freeResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
     {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...firestoreQuery }),
     }
@@ -262,9 +303,9 @@ export async function getServerSideProps() {
   const discountResponse = await fetch(
     `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
     {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...discountQuery }),
     }
