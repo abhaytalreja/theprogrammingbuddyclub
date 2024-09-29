@@ -282,40 +282,104 @@ export default function Home({ freeCourses, discountCourses }) {
   )
 }
 
-export async function getServerSideProps() {
-  // const response = await fetch(
-  //   `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents/courses?key=${siteConfig.FIRESTORE_KEY}`
-  // )
-  const freeResponse = await fetch(
-    `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...firestoreQuery }),
-    }
-  )
-  const freeResponseJson = await freeResponse.json()
-  const freeCourses = await FireStoreParser(freeResponseJson)
-  // console.log(freeResponseJson, freeCourses)
+const cache = new Map()
+const CACHE_TTL = 30 * 60 * 1000 // 30 minutes
 
-  const discountResponse = await fetch(
-    `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...discountQuery }),
+export async function getServerSideProps() {
+  const cacheKey = 'home_page_courses'
+  if (cache.has(cacheKey)) {
+    const { data, timestamp } = cache.get(cacheKey)
+    if (Date.now() - timestamp < CACHE_TTL) {
+      return { props: data }
     }
-  )
-  const discountResponseJson = await discountResponse.json()
-  const discountCourses = await FireStoreParser(discountResponseJson)
-  return {
-    props: {
-      freeCourses: freeCourses.length === 1 ? [] : freeCourses,
-      discountCourses: discountCourses.length === 1 ? [] : discountCourses,
+  }
+
+  const freeQuery = {
+    structuredQuery: {
+      from: [{ collectionId: 'courses' }],
+      orderBy: [
+        { field: { fieldPath: 'updateDate' }, direction: 'DESCENDING' },
+      ],
+      select: {
+        fields: courseFields,
+      },
+      where: {
+        fieldFilter: {
+          field: { fieldPath: 'isFree' },
+          op: 'EQUAL',
+          value: { booleanValue: true },
+        },
+      },
+      limit: 8,
     },
+  }
+
+  const discountQuery = {
+    structuredQuery: {
+      from: [{ collectionId: 'courses' }],
+      orderBy: [
+        { field: { fieldPath: 'updateDate' }, direction: 'DESCENDING' },
+      ],
+      select: {
+        fields: courseFields,
+      },
+      where: {
+        fieldFilter: {
+          field: { fieldPath: 'isFree' },
+          op: 'EQUAL',
+          value: { booleanValue: false },
+        },
+      },
+      limit: 8,
+    },
+  }
+
+  try {
+    const freeResponse = await fetch(
+      `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(freeQuery),
+      }
+    )
+    const freeResponseJson = await freeResponse.json()
+    const freeCourses = await FireStoreParser(freeResponseJson)
+
+    const discountResponse = await fetch(
+      `https://firestore.googleapis.com/v1/projects/thepbcapp/databases/(default)/documents:runQuery`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(discountQuery),
+      }
+    )
+    const discountResponseJson = await discountResponse.json()
+    const discountCourses = await FireStoreParser(discountResponseJson)
+
+    console.log('Free courses raw response:', freeResponseJson)
+    console.log('Discount courses raw response:', discountResponseJson)
+
+    const data = {
+      freeCourses: freeCourses.filter(
+        (course) => course && course.document && course.document.fields
+      ),
+      discountCourses: discountCourses.filter(
+        (course) => course && course.document && course.document.fields
+      ),
+    }
+
+    cache.set(cacheKey, { data, timestamp: Date.now() })
+
+    return { props: data }
+  } catch (error) {
+    console.error('Error fetching courses:', error)
+    return {
+      props: {
+        freeCourses: [],
+        discountCourses: [],
+        error: 'Failed to fetch courses',
+      },
+    }
   }
 }

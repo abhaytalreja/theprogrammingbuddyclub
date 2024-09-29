@@ -1,30 +1,46 @@
-// middleware.ts
-
 import { NextResponse } from 'next/server'
 
-export default function middleware(request) {
-  if (request.nextUrl.pathname.startsWith('/go/')) {
-    // let url = request.nextUrl.pathname
-    //   .substring(request.nextUrl.pathname.indexOf("/go/") + 4)
-    //   .replace("https:/www", "https://www")
+const REQUESTS_PER_MINUTE = 60
+const WINDOW_SIZE_IN_SECONDS = 60
 
-    let url = request.nextUrl.pathname.substring(
-      request.nextUrl.pathname.indexOf('/go/') + 4
-    )
-    const affiliateUrl =
-      'https://click.linksynergy.com/link?id=i*IXi5qsT7c&offerid=1074530.2855598&type=2&murl='
+const ipRequestCounts = new Map()
 
-    const encodedUrl = encodeURIComponent(
-      url.replace('https:/', 'https://') + request.nextUrl.search
-    )
+export function middleware(request) {
+  const ip = request.ip || 'unknown'
+  const now = Math.floor(Date.now() / 1000)
 
-    // url = url + request.nextUrl.search
-    url = affiliateUrl + encodedUrl
-
-    return NextResponse.redirect(url)
+  if (!ipRequestCounts.has(ip)) {
+    ipRequestCounts.set(ip, [])
   }
+
+  const requests = ipRequestCounts.get(ip)
+  const windowStart = now - WINDOW_SIZE_IN_SECONDS
+
+  // Remove old requests
+  while (requests.length > 0 && requests[0] < windowStart) {
+    requests.shift()
+  }
+
+  if (requests.length >= REQUESTS_PER_MINUTE) {
+    return new NextResponse(null, {
+      status: 429,
+      statusText: 'Too Many Requests',
+      headers: {
+        'Retry-After': WINDOW_SIZE_IN_SECONDS.toString(),
+        'Content-Type': 'text/plain',
+      },
+    })
+  }
+
+  requests.push(now)
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: '/go/:path*',
+  matcher: [
+    '/',
+    '/category/:path*',
+    '/course/:path*',
+    '/free-coupon-udemy-courses-today',
+  ],
 }

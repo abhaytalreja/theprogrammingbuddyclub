@@ -8,3 +8,9 @@ Host: https://theprogrammingbuddy.club
 # Sitemaps
 Sitemap: https://theprogrammingbuddy.club/sitemap.xml
 Sitemap: https://theprogrammingbuddy.club/server-sitemap.xml
+
+Crawl-delay: 10
+
+# Disallow high-traffic pages
+Disallow: /free-coupon-udemy-courses-today
+Disallow: /category/
