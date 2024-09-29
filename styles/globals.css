@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.course-description h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.course-description p {
+  margin-bottom: 15px;
+}
+
+.course-description ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.course-description li {
+  margin-bottom: 5px;
+}
